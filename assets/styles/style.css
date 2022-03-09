@@ -348,6 +348,19 @@ height: 100%;
     text-align: center;
 }
 
+/*ZOOM IMAGENES CON HOVER*/
+.zoomhover {
+    transition: transform .2s; /* Animation */
+}
+
+.zoomhover:hover {
+    transform:scale(1.15);
+    border: black 1.2px solid;
+    border-radius: 10px;
+}
+
+
+
 /*ABOUTE ME*/
 /*ABOUTE ME GRID*/
 
