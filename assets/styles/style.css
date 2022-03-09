@@ -1,0 +1,820 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap');
+
+/*Variables*/
+:root {
+    --principal:#FFF  ;
+    --secondary:#C1714C;
+    --font-color1:black;
+    --font-color2: white;
+    --font-primary:'Montserrat', sans-serif;
+    --font-secondary:"Montserrat", cursive;
+    --text-lg: 32px;  
+}
+
+/*Normalize*/
+
+*,
+*::after,
+*::before {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+/*Globals*/
+
+html, body {
+  font-family: var(--font-primary);
+  color: var(--font-color1);
+  font-size: 62.5%;
+  background-color: var(--principal);
+  margin:0px;  
+  min-height: 100vh;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-color2);
+  display: inline-block;
+}
+
+/*Helpers*/
+
+.flex-row {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}  
+
+/*GRID HOME*/
+
+.gridhome {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "banner banner banner"
+    "texto texto texto"
+    "cat1 cat2 cat3"
+    "texto1 texto1 banner3"
+    "footer footer footer";
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 15vh auto auto 500px auto 15vh;
+
+    row-gap: 5px;
+    column-gap: 10px;
+}
+
+.navbar {
+    grid-area: header;
+}
+
+.banner1 {
+    grid-area: banner;
+}
+
+.texto {
+    grid-area: texto;
+    width: 80%;
+    margin:0 auto;
+}
+
+.categoria1 {
+    grid-area: cat1;
+}
+.categoria2 {
+    grid-area: cat2;
+}
+.categoria3 {
+    grid-area:cat3;
+}
+
+.texto1 {
+    grid-area: texto1;
+}
+
+.banner3 {
+    grid-area: banner3;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+
+/*ESTILOS HEADER*/
+
+.navbar {background-color: var(--secondary);
+width: 100%;
+height: 100%;
+}
+
+.navbar .navbar__nav {
+    justify-content: space-between;
+    height: 100%;
+    align-items:center;
+}
+
+.navbar__menu {
+    flex-wrap: wrap;
+}
+
+.navbar .navbar__menu .navbar__links{
+    padding: 12px;
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+
+  .navbar .navbar__menu .navbar__links:hover{
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+  
+.navbar .navbar__logo {
+    height: 100%;
+}
+
+.navbar .navbar__logo img {
+    height: 100%;
+}
+
+/*BANNER PRINCIPAL Y TEXTO INFERIOR */
+
+.banner1 img {
+    max-width: 100%;
+}
+
+.texto {
+    font-size: 2.4em;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+/*BANNER 3 CATEGORIAS */
+
+.bannermedium {
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.bannermedium__button {
+    padding: 5px 15px;
+    margin: 15px auto 10px auto;
+    font-size: 2.5em;
+    border:solid black 1px;
+    border-radius: 12px;
+    background-color: var(--secondary);
+    color: var(--font-color2);
+    text-align: center;
+    align-self: center;
+    transition: background-color 0.5s ease-out 100ms
+  }
+
+  .bannermedium__button:hover {
+    background-color: var(--principal);
+    color: var(--font-color1);
+  }
+
+  .bannermedium .bannermedium__text {
+      width: 80%;
+      font-size: 2.25em;
+      font-weight: 600;
+      text-align: center;
+  }
+
+
+/*HOME TEXTO INFEROR INSTAGRAM E IMAGEN*/
+
+.bannerlow__text {
+    padding: 90px;
+    justify-content: space-between;
+    align-items: center;
+    align-content:space-around;
+}
+
+.bannerlow__text .bannerlow__text__texto{
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+}
+
+.bannerlow__text img {
+    width: 40px;
+    align-self: center;
+    vertical-align: text-bottom;
+}
+
+.bannerlow__text .linkinstagram {
+    font-size: 4em;
+    color: var(--font-color1);
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+.bannerlow__text .linkinstagram:hover {
+    font-weight: bold;
+}
+
+.bannerlow__text__imagen {
+    justify-content: space-between;
+    align-items: center;
+    align-content:space-around;
+}
+
+.bannerlow__img img{
+    min-height: 400px;
+}
+
+
+/*FOOTER*/
+
+.footer {
+    background: var(--secondary);
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+  }
+  .footer__list {
+      list-style-type: none;
+      align-self: center;
+      text-align: center;
+  }
+  
+  .footer__list__links {
+    padding: 12px;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+  
+.footer p {
+    font-size: 2em;
+}
+
+/*PORTFOLIO */
+/*GRID PORTFOLIO*/
+
+.gridportfolio {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "texto texto texto"
+    "foto1 foto2 foto3"
+    "foto4 foto5 foto6"
+    "foto7 foto8 foto9"
+    "footer footer footer";
+
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 15vh auto auto auto auto 15vh;
+
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+.navbar {
+    grid-area: header;
+}
+
+.textosportfolio {
+    grid-area: texto;
+}
+
+.portfolio1 {
+    grid-area: foto1;
+}
+.portfolio2 {
+    grid-area: foto2;
+}
+.portfolio3 {
+    grid-area: foto3;
+}
+.portfolio4 {
+    grid-area: foto4;
+}
+.portfolio5 {
+    grid-area: foto5;
+}
+.portfolio6 {
+    grid-area: foto6;
+}
+.portfolio7 {
+    grid-area: foto7;
+}
+.portfolio8 {
+    grid-area: foto8;
+}   
+.portfolio9 {
+    grid-area: foto9;
+}
+
+/*ESTILOS TEXTOS PORTFOLIO*/
+
+.textosportfolio {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.textosportfolio h1{
+    font-size: 4em;
+    text-align: left;
+}
+
+.textosportfolio h2{
+    margin: 25px 20px 0 auto;
+    font-size: 3em;
+    text-align: right;
+    font-weight: lighter;
+    width: 70%;
+}
+
+.grilla_portfolio {
+    text-align: center;
+}
+
+/*ABOUTE ME*/
+/*ABOUTE ME GRID*/
+
+.gridaboutme {
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "texto imagen"
+    "textoig bannerig"
+    "footer footer";
+
+    grid-template-columns: auto auto;
+    grid-template-rows: 15vh auto auto 15vh;
+
+    row-gap: 25px;
+}
+
+.banner_aboutme__textos {
+    grid-area: texto;
+}
+
+.banner_aboutme__imagen {
+    grid-area:imagen;
+}
+
+.texto1am {
+    grid-area:textoig;
+}
+
+.banner3am {
+    grid-area: bannerig;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/*FORMATOS PARA HTML DE ABOUT-ME*/
+
+.banner_aboutme__textos {
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.banner_aboutme__textos h1 {
+    font-size: 6em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.banner_aboutme__textos h2 {
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.banner_aboutme__textos p {
+    font-size: 4em;
+    width: 80%;
+    text-align: center;
+}
+
+.banner_aboutme__imagen img {
+    width: 80%;
+}
+
+/*HTML DE CONTACTO - GRID*/
+
+.gridcontact {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "textocontacto"
+    "contacticon"
+    "form"
+    "footer"
+    ;
+    grid-template-columns: 100vw;
+    grid-template-rows: 15vh auto auto auto 15vh;
+    gap: 20px;
+}
+
+.TextoContacto {
+    grid-area: textocontacto;
+}
+
+.contacto1 {
+    grid-area: whatsapp;
+}
+
+.contacto2 {
+    grid-area: call;
+}
+
+.contacto3 {
+    grid-area:mail;
+}
+
+.Form {
+    grid-area: form;
+}
+
+/*ESTILOS PARA HTML CONTACTO*/
+
+.TextoContacto {
+    margin: 10px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.TextoContacto__texto h1{
+    font-size: 4em;
+    text-align: center;
+}
+
+.TextoContacto__texto h2{
+    font-size: 3em;
+    text-align: center;
+    font-weight: lighter;
+    margin-top: 10px;
+}
+
+
+.contactos {
+    padding: 20px;
+    background-image: linear-gradient(to right, #be886e, #bf8a71, #c18c73, #c28f76, #c39179, #c59680, #c69b88, #c8a08f, #caa99c, #cbb2a9, #cbbcb6, #cbc5c3);
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contactos__formas {
+    width: 400px;
+    gap: 10px;
+}
+
+.contactos .contactos__formas h3{
+    font-size: 3.8em;
+    text-align: center;
+}
+
+.contactos .contactos__formas p{
+    text-align: center;
+    font-size: 2.2em;
+}
+
+.contactos__formas picture{
+    margin: 0 auto;
+}
+
+.contactos__formas picture img{
+    width: 25px;
+}
+
+/*PARTE DEL FORM DE CONTACTO*/
+
+.Form h2{
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.Form .formulario {
+    width: 600px;
+    margin: 0 auto;
+    font-size: 2.2em;
+    font-weight: 600;
+    
+}
+
+.formulario__interes{
+    align-self: center;
+}
+
+.formulario__interes input{
+    display: inline;
+    padding: 10px;
+
+}
+
+.formulario__interes label{
+    padding: 3px;
+    text-align: center;
+}
+
+.Form .boton {
+    width: 60px;
+    margin: 0 auto;
+}
+
+
+/*GRID DE SERVICIOS */
+
+.gridservicios {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 15vh auto auto auto auto auto auto 15vh;
+    gap: 7px 7px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header"
+      "textoservicio imagenservicio imagenservicio"
+      "servicio01 servicio01 textoserv1"
+      "servicio02 servicio02 textoserv2"
+      "servicio03 servicio03 textoserv3"
+      "tituloincluyen tituloincluyen tituloincluyen"
+      "incluye1 incluye2 incluye3"
+      "footer footer footer";
+  }
+  
+  .navbar { grid-area: header; }
+  
+  .textoservicio { grid-area: textoservicio; }
+  
+  .imagenservicio { grid-area: imagenservicio; }
+  
+  .servicio01 { grid-area: servicio01;
+    text-align: center; }
+  
+  .textoserv1 { grid-area: textoserv1;
+    text-align: center;
+    justify-content: center;   }
+  
+  .servicio02 { grid-area: servicio02;
+    text-align: center;  }
+  
+  .textoserv2 { grid-area: textoserv2;
+    text-align: center;
+    justify-content: center;  }
+  
+  .servicio03 { grid-area: servicio03;
+    text-align: center;  }
+  
+  .textoserv3 { grid-area: textoserv3;
+    text-align: center; 
+    justify-content: center;  }
+
+  .TituloIncluyen {grid-area:tituloincluyen;
+    text-align: center; 
+    justify-content: center;  }
+  
+  .incluye1 { grid-area: incluye1; 
+    text-align: center; 
+    justify-content: center;  }
+  
+  .incluye2 { grid-area: incluye2;
+    text-align: center; 
+    justify-content: center;   }
+  
+  .incluye3 { grid-area: incluye3;
+    text-align: center; 
+    justify-content: center;   }
+  
+  .footer { grid-area: footer; }
+  
+/*ESTILOS PARA HTML DE SERVICIOS*/
+
+.textoservicio {
+    align-self: center;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.imagenservicio{
+    text-align: center;
+}
+
+.imagenservicio img{
+    max-width: 100%;
+}
+
+.imagenincluyen {
+    max-width: 100%;
+}
+
+.servicio__imagen img{
+    max-width: 100%;
+}
+.TitulosServ {
+    font-size: 3.5em;
+}
+
+.DescrServ {
+    font-size: 2.5em;
+}
+
+.TituloIncluyen {
+    margin: 15px auto;
+    font-size: 4em;
+}
+
+.incluye1 p{
+    font-size: 3em;
+}
+
+.incluye2 p{
+    font-size: 3em;
+}
+.incluye3 p{
+    font-size: 3em;
+}
+
+/*RESPONSIVE PARA CELULARES*/
+
+@media only screen and (max-width: 600px) {
+
+    /*SECCION DE HOME RESPONSIVE*/
+
+
+    .gridhome {
+        display: grid;
+        grid-template-areas:
+        "header" 
+        "banner"
+        "texto"
+        "cat1"
+        "cat2"
+        "cat3"
+        "texto1"
+        "banner3"
+        "footer";
+    
+        grid-template-columns: 100% ;
+        grid-template-rows: auto auto auto auto auto auto auto auto 15vh;
+    }
+
+    
+        .navbar__nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar .navbar__logo img{
+            height: 80px;
+        }
+
+        .navbar__menu {
+            justify-content: center;
+        }
+
+        .texto {
+            font-size: 1.4em;
+        }
+
+        .bannerlow__text {
+            padding: 15px;
+        }
+
+        .bannerlow__text .bannerlow__text__texto{
+            margin: 0px 0px 10px 0px;
+            font-size: 3em;
+        }
+
+        .bannerlow__text img {
+            width: 20px;
+        }
+
+        .bannerlow__text .linkinstagram {
+            font-size: 2.2em;
+        }
+
+        .bannerlow__img img{
+            width: 100vw;
+        }
+
+        .bannermedium__img {
+            width: 100vw;
+        }
+
+/*SECCION DE PORTFOLIO RESPONSIVE*/
+
+        .gridportfolio {
+            min-height: 100vh;
+            display: grid;
+            grid-template-areas: 
+            "header"
+            "texto "
+            "foto1"
+            "foto2"
+            "foto3"
+            "foto4"
+            "foto5"
+            "foto6"
+            "foto7"
+            "foto8"
+            "foto9"
+            "footer";
+
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto 15vh;
+
+        }
+
+/*SECCION DE ABOUT-ME GRID RESPONSIVE*/
+
+        .gridaboutme {
+            display: grid;
+            grid-template-areas: 
+            "header"
+            "imagen"
+            "texto"
+            "textoig"
+            "bannerig"
+            "footer";
+
+
+            grid-template-columns: 100%;
+            grid-template-rows: auto auto auto auto auto 15vh;
+        }
+
+
+        .banner_aboutme__imagen img {
+            width: 100%;
+        }
+
+/*SECCION DE CONTACTO GRID RESPONSIVE*/
+
+.gridcontact {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "textocontacto"
+    "contacticon"
+    "form"
+    "footer"
+    ;
+    grid-template-columns: 100vw;
+    grid-template-rows: auto auto auto auto 15vh;
+    gap: 10px;
+}
+
+.TextoContacto__img {
+    margin-top: 15px;
+}
+
+.Form .formulario {
+    width: 80%;
+}
+
+.TextoContacto__img img{
+    width: 100vw;
+}
+
+/*SECCION SERVICIOS RESPONSIVE GRID*/
+
+.gridservicios {  display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: repeat(13,auto) 15vh;
+    gap: 7px 7px;
+    grid-template-areas:
+      "header"
+      "textoservicio"
+      "imagenservicio"
+      "textoserv1"
+      "servicio01" 
+      "textoserv2"
+      "servicio02" 
+      "textoserv3"
+      "servicio03" 
+      "tituloincluyen"
+      "incluye1"
+       "incluye2" 
+       "incluye3"
+       "footer";
+  }
+
+
+
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Diseñadora de Interiores Fiorella Toselli</title>
+</head>
+
+<body  class="gridcontact">
+    <header class="navbar">
+        <nav class="container navbar__nav flex-row">
+          <picture class="navbar__logo">
+            <img class="logo" src="../images/LOGO_MODO.jpg" alt="" />
+          </picture>
+          <ul class="navbar__menu flex-row">
+            <li class="navbar__items">
+              <a href="../../index.html" class="navbar__links">HOME</a>
+            </li>
+            <li class="navbar__items">
+              <a href="./services.html" class="navbar__links">SERVICIOS</a>
+            </li>
+            <li class="navbar__items">
+              <a href="./portfolio.html" class="navbar__links">PORTFOLIO</a>
+            </li>
+            <li class="navbar__items">
+              <a href="./contact.html" class="navbar__links">CONTACTO</a>
+            </li>
+            <li class="navbar__items">
+              <a href="./about-me.html" class="navbar__links">SOBRE MI</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+    <section class="TextoContacto flex-row">
+        <article  class="TextoContacto__texto">
+            <h1>¿Necesitas Ayuda Profesional? ¡Contactame!</h1>
+            <h2>Trabajaremos en conjunto para lograr que ese espacio que tanto soñas se haga realidad.</h2>
+        </article>
+        <article class="TextoContacto__img">
+            <img  src="../images/banner_contacto.jpg" alt="">
+        </article>
+    </section>
+
+
+    <section class="contactos flex-row">
+            <!--Formas de Contacto x 3 - Poner Horizontal falta-->
+        <article class="contactos__formas flex-column">
+                <h3>Enviame un Mensaje</h3>
+                <p>Te respondo por Whatsapp +2954xxxxx</p>
+                <picture>
+                    <img src="../images/icono_whatsapp.png" alt="">
+                </picture>
+
+        </article>
+        <article class="contactos__formas flex-column">
+                <h3>Llamame</h3>
+                <p>Podes hacerlo al +542954xxxxxxx</p>
+                <picture>
+                    <img src="../images/icono_llamada.png" alt="" >
+                </picture>
+
+        </article>
+        <article class="contactos__formas flex-column">
+                <h3>Escribime</h3>
+                <p>Enviame un e-mail a modointeriores@fadsfds.com</p>
+                <picture>
+                    <img src="../images/icono_mail.png" alt="">
+                </picture>
+        </article>
+    </section>
+
+    <article class="Form">
+        <!--Seccion de Formulario de Contacto-->
+        <h2>O demaje tus datos y me pondré en contato contigo</h2>
+
+        
+        <form class="flex-column formulario" action="llego_un_contacto" method="get">
+            <!--Formulario de Contacto-->
+            <label for="Name">NOMBRE Y APELLIDO</label>
+            <input type="text" name="Nombre y Apellido" id="Name">
+
+            <label for="Phone">TELEFONO</label>
+            <input type="tel" name="Telefono" id="Phone">
+
+            <label for="e_mail">CORREO ELECTRONICO</label>
+            <input type="email" name="Correo Electronico" id="e_mail">
+            <br>
+            <p>Estas interesado/a en:</p><!-- Checkbox dentro de formulario -->
+            <br>
+            <div class="formulario__interes">
+                <input type="radio" name="tipo_diseño" id="DidseñoComercial">
+                <label for="DiseñoComercial">Diseño Comercial</label>
+                <input type="radio" name="tipo_diseño" id="DiseñoResidencial">
+                <label for="DiseñoResidencial">Diseño Residencial</label>
+                <input type="radio" name="tipo_diseño" id="DiseñoVirtual">
+                <label for="DiseñoVirtual">Diseño Virtual</label>
+            </div>
+            <br>
+                <p>Aquí podras detallar tu consulta para orientarnos</p>
+            <textarea name="" id="" cols="40" rows="5"></textarea>
+            <br>
+            <p>Prefiero me contacten por:</p>
+            <select name="FormaContacto" id="">
+                <option value="Telefono">Telefonicamente</option>
+                <option value="Mail">Correo Electronico</option>
+                <option value="Whatsapp">Por Whahtsapp</option>
+                <select name="FormaContacto" id="">
+
+                    <input class="boton" type="submit" value="Enviar">
+                    <input class="boton" type="reset" value="Borrar">
+        </form>
+    </article>
+
+    <footer class="footer">
+      <!--Menu Footer igual a Header pero sin logo-->
+      <ul class="footer__list">
+        <a href="../../index.html" class="footer__list__links"><li>HOME</li></a>
+        <a href="./services.html" class="footer__list__links"
+          ><li>SERVICIOS</li></a
+        >
+        <a href="./portfolio.html" class="footer__list__links"
+          ><li>PORTFOLIO</li></a
+        >
+        <a href="./contact.html" class="footer__list__links"
+          ><li>CONTACTO</li></a
+        >
+        <a href="./about-me.html" class="footer__list__links"
+          ><li>SOBRE MI</li></a
+        >
+      </ul>
+      <p>Modo Interiores. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+</html>
