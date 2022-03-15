@@ -643,69 +643,6 @@ a {
   
 /*ESTILOS PARA HTML DE SERVICIOS*/
 
-.gridservicios {  display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 15vh auto auto auto auto auto auto 15vh;
-    gap: 7px 7px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "header header header"
-      "textoservicio imagenservicio imagenservicio"
-      "servicio01 servicio01 textoserv1"
-      "servicio02 servicio02 textoserv2"
-      "servicio03 servicio03 textoserv3"
-      "tituloincluyen tituloincluyen tituloincluyen"
-      "incluye1 incluye2 incluye3"
-      "footer footer footer";
-  }
-  
-  .navbar { grid-area: header; }
-  
-  .textoservicio { grid-area: textoservicio; }
-  
-  .imagenservicio { grid-area: imagenservicio; }
-  
-  .servicio01 { grid-area: servicio01;
-    text-align: center; }
-  
-  .textoserv1 { grid-area: textoserv1;
-    text-align: center;
-    justify-content: center;   }
-  
-  .servicio02 { grid-area: servicio02;
-    text-align: center;  }
-  
-  .textoserv2 { grid-area: textoserv2;
-    text-align: center;
-    justify-content: center;  }
-  
-  .servicio03 { grid-area: servicio03;
-    text-align: center;  }
-  
-  .textoserv3 { grid-area: textoserv3;
-    text-align: center; 
-    justify-content: center;  }
-
-  .TituloIncluyen {grid-area:tituloincluyen;
-    text-align: center; 
-    justify-content: center;  }
-  
-  .incluye1 { grid-area: incluye1; 
-    text-align: center; 
-    justify-content: center;  }
-  
-  .incluye2 { grid-area: incluye2;
-    text-align: center; 
-    justify-content: center;   }
-  
-  .incluye3 { grid-area: incluye3;
-    text-align: center; 
-    justify-content: center;   }
-  
-  .footer { grid-area: footer; }
-  
-/*ESTILOS PARA HTML DE SERVICIOS*/
-
 .textoservicio {
     align-self: center;
     text-align: center;
@@ -751,6 +688,7 @@ a {
 .incluye3 p{
     font-size: 3em;
 }
+
 /*RESPONSIVE PARA CELULARES*/
 
 @media only screen and (max-width: 600px) {
