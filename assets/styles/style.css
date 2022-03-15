@@ -72,7 +72,7 @@ a {
     "footer footer footer";
 
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 15vh auto auto 500px auto 15vh;
+    grid-template-rows: 15vh auto auto 500px auto 3vh;
 
     row-gap: 5px;
     column-gap: 10px;
@@ -110,7 +110,7 @@ a {
     grid-area: banner3;
 }
 
-.footer {
+.footerhome {
     grid-area: footer;
 }
 
@@ -247,28 +247,12 @@ a {
 
 /*FOOTER*/
 
-.footer {
+.footerhome {
     background: var(--secondary);
-    display:flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-  }
-  .footer__list {
-      list-style-type: none;
-      align-self: center;
-      text-align: center;
-  }
-  
-  .footer__list__links {
-    padding: 12px;
-    font-size: 2.5em;
-    font-weight: 600;
-}
-  
-.footer p {
     font-size: 2em;
-}
+    text-align: center;
+    
+  }
 
 /*PORTFOLIO */
 /*GRID PORTFOLIO*/
