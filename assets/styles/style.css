@@ -118,38 +118,41 @@ a {
 /*ESTILOS HEADER*/
 
 .navbar {background-color: var(--secondary);
-width: 100%;
-height: 100%;
-}
-
-.navbar .navbar__nav {
-    justify-content: space-between;
+    width: 100%;
     height: 100%;
-    align-items:center;
-}
-
-.navbar__menu {
-    flex-wrap: wrap;
-}
-
-.navbar .navbar__menu .navbar__links{
-    padding: 12px;
-    font-size: 2.5em;
-    font-weight: 600;
-  }
-
-  .navbar .navbar__menu .navbar__links:hover{
-    border: 1px solid white;
-    border-radius: 10px;
-  }
-  
-.navbar .navbar__logo {
-    height: 100%;
-}
-
-.navbar .navbar__logo img {
-    height: 100%;
-}
+    }
+    
+    .navbar-light .navbar-nav .nav-link {
+        padding: 12px;
+        font-size: 2.5em;
+        font-weight: 600;
+        color: var(--font-color2);
+      }
+    
+    /* .navbar .navbar__nav {
+        justify-content: space-between;
+        height: 100%;
+        align-items:center;
+    }
+    
+    .navbar__menu {
+        flex-wrap: wrap;
+    }
+    
+    
+    
+      .navbar .navbar__menu .navbar__links:hover{
+        border: 1px solid white;
+        border-radius: 10px;
+      }
+      
+    .navbar .navbar__logo {
+        height: 100%;
+    }
+    
+    .navbar .navbar__logo img {
+        height: 100%;
+    } */
 
 /*BANNER PRINCIPAL Y TEXTO INFERIOR */
 
@@ -520,20 +523,53 @@ height: 100%;
 /*PARTE DEL FORM DE CONTACTO*/
 
 .Form h2{
-    font-size: 3em;
+    font-size: 4em;
+    font-weight: 600;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .Form .formulario {
-    width: 600px;
+    width: 500px;
     margin: 0 auto;
-    font-size: 2.2em;
+    font-size: 2em;
     font-weight: 600;
-    
+    padding: 15px;
+    border: black 2px solid;
+    border-radius: 8px;
 }
 
-.formulario__interes{
+.Form .formulario div .form-check {
+    padding: 0 10px;
+}
+
+.Form .botonformulario {
+    width: 90px;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    margin: 0 auto;
+    padding-top:3px;
+    padding-bottom: 3px;
+    text-align: center;
+
+} 
+
+.btn-primary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+} 
+
+.btn-primary:hover {
+    transform: scale(1.2);
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    font-weight: 600;
+
+} 
+
+
+
+/* .formulario__interes{
     align-self: center;
 }
 
@@ -548,10 +584,7 @@ height: 100%;
     text-align: center;
 }
 
-.Form .boton {
-    width: 60px;
-    margin: 0 auto;
-}
+*/
 
 
 /*GRID DE SERVICIOS */

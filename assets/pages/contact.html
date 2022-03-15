@@ -8,35 +8,43 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/style.css" />
     <title>Diseñadora de Interiores Fiorella Toselli</title>
 </head>
 
 <body  class="gridcontact">
-    <header class="navbar">
-        <nav class="container navbar__nav flex-row">
-          <picture class="navbar__logo">
-            <img class="logo" src="../images/LOGO_MODO.jpg" alt="" />
-          </picture>
-          <ul class="navbar__menu flex-row">
-            <li class="navbar__items">
-              <a href="../../index.html" class="navbar__links">HOME</a>
+  <header class="navbar">
+    <nav class="navbar navbar-expand-sm navbar-light">
+      <div class="container-lg ">
+          <a class="navbar-brand" href="#">
+              <img src="../images/LOGO_MODO.jpg" alt="" width="100" height="72">
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end"  id="navbarSupportedContent">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../../index.html">Home</a>
             </li>
-            <li class="navbar__items">
-              <a href="./services.html" class="navbar__links">SERVICIOS</a>
+            <li class="nav-item">
+              <a class="nav-link" href="./services.html">Servicios</a>
             </li>
-            <li class="navbar__items">
-              <a href="./portfolio.html" class="navbar__links">PORTFOLIO</a>
+            <li class="nav-item">
+              <a class="nav-link" href="./portfolio.html">Portfolio</a>
             </li>
-            <li class="navbar__items">
-              <a href="./contact.html" class="navbar__links">CONTACTO</a>
+            <li class="nav-item">
+              <a class="nav-link active" href="./contact.html">Contacto</a>
             </li>
-            <li class="navbar__items">
-              <a href="./about-me.html" class="navbar__links">SOBRE MI</a>
+            <li class="nav-item">
+              <a class="nav-link" href="./about-me.html">Sobre Mi</a>
             </li>
           </ul>
-        </nav>
-      </header>
+        </div>
+      </div>
+    </nav>
+    </header>
 
     <section class="TextoContacto flex-row">
         <article  class="TextoContacto__texto">
@@ -75,68 +83,102 @@
                 </picture>
         </article>
     </section>
-
-    <article class="Form">
-        <!--Seccion de Formulario de Contacto-->
-        <h2>O demaje tus datos y me pondré en contato contigo</h2>
-
-        
-        <form class="flex-column formulario" action="llego_un_contacto" method="get">
-            <!--Formulario de Contacto-->
-            <label for="Name">NOMBRE Y APELLIDO</label>
-            <input type="text" name="Nombre y Apellido" id="Name">
-
-            <label for="Phone">TELEFONO</label>
-            <input type="tel" name="Telefono" id="Phone">
-
-            <label for="e_mail">CORREO ELECTRONICO</label>
-            <input type="email" name="Correo Electronico" id="e_mail">
-            <br>
-            <p>Estas interesado/a en:</p><!-- Checkbox dentro de formulario -->
-            <br>
-            <div class="formulario__interes">
-                <input type="radio" name="tipo_diseño" id="DidseñoComercial">
-                <label for="DiseñoComercial">Diseño Comercial</label>
-                <input type="radio" name="tipo_diseño" id="DiseñoResidencial">
-                <label for="DiseñoResidencial">Diseño Residencial</label>
-                <input type="radio" name="tipo_diseño" id="DiseñoVirtual">
-                <label for="DiseñoVirtual">Diseño Virtual</label>
+        <article class="Form">
+          <!--Seccion de Formulario de Contacto-->
+          <h2>O dejame tus datos y me pondré en contato contigo</h2>
+  
+          
+          <form class="formulario">
+            <div class="row mb-3">
+              <label for="DatosPersona" class="col-sm-4 col-form-label">Nombre y Apellido</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="DatosPersona">
+              </div>
             </div>
-            <br>
-                <p>Aquí podras detallar tu consulta para orientarnos</p>
-            <textarea name="" id="" cols="40" rows="5"></textarea>
-            <br>
-            <p>Prefiero me contacten por:</p>
-            <select name="FormaContacto" id="">
-                <option value="Telefono">Telefonicamente</option>
-                <option value="Mail">Correo Electronico</option>
-                <option value="Whatsapp">Por Whahtsapp</option>
-                <select name="FormaContacto" id="">
-
-                    <input class="boton" type="submit" value="Enviar">
-                    <input class="boton" type="reset" value="Borrar">
-        </form>
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-4 col-form-label">Email</label>
+              <div class="col-sm-8">
+                <input type="email" class="form-control" id="inputEmail3">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="TelefonoContacto" class="col-sm-4 col-form-label">Whatsapp</label>
+              <div class="col-sm-8">
+                <input type="tel" class="form-control" id="TelefonoContacto">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="Ciudad" class="col-sm-4 col-form-label">Ciudad</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="Ciudad">
+              </div>
+            </div>
+            
+            <div class="row mb-3">
+              <label for="inputState" class="col-sm-4 form-label">Provincia</label>
+              <div class="col-sm-8">
+              <select id="inputState" class="form-select">
+                <option selected>Seleccionar...</option>
+                  <option>Buenos Aires</option>
+                  <option>Catamarca</option>
+                  <option>Chaco</option>
+                  <option>Chubut</option>
+                  <option>Córdoba</option>
+                  <option>Entre Ríos</option>
+                  <option>Formosa</option>
+                  <option>Jujuy</option>
+                  <option>La Pampa</option>
+                  <option>La Rioja</option>
+                  <option>Mendoza</option>
+                  <option>Misiones</option>
+                  <option>Neuquén</option>
+                  <option>Río Negro</option>
+                  <option>Salta</option>
+                  <option>San Juan</option>
+                  <option>San Luis</option>
+                  <option>Santa Cruz</option>
+                  <option>Santa Fe</option>
+                  <option>Santiago del Este</option>ro
+                  <option>Tierra del Fuego</option>
+                  <option>Tucumán</option>
+                  <option>NO ARGENTINA</option>
+              </select>
+            </div>
+            </div>
+            <fieldset class="row mb-2">
+              <legend class="col-form-label col-sm-5">Estoy interesada/o en</legend>
+              <div class="col-sm-7">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Residencial" checked>
+                  <label class="form-check-label" for="gridRadios1">
+                    Diseño Residencial
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Comercial">
+                  <label class="form-check-label" for="gridRadios2">
+                    Diseño Comercial
+                  </label>
+                </div>
+                <div class="form-check disabled">
+                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="Virtual" checked>
+                  <label class="form-check-label" for="gridRadios3">
+                    Asesoria Virtual
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+            <div class="botonformulario">
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+          </form>
     </article>
 
-    <footer class="footer">
-      <!--Menu Footer igual a Header pero sin logo-->
-      <ul class="footer__list">
-        <a href="../../index.html" class="footer__list__links"><li>HOME</li></a>
-        <a href="./services.html" class="footer__list__links"
-          ><li>SERVICIOS</li></a
-        >
-        <a href="./portfolio.html" class="footer__list__links"
-          ><li>PORTFOLIO</li></a
-        >
-        <a href="./contact.html" class="footer__list__links"
-          ><li>CONTACTO</li></a
-        >
-        <a href="./about-me.html" class="footer__list__links"
-          ><li>SOBRE MI</li></a
-        >
-      </ul>
-      <p>Modo Interiores. Todos los derechos reservados.</p>
-    </footer>
+    <footer class="footerhome">
+      <a href="https://www.modointeriores.com.ar/"> Modo Interiores&copy; - Diseñadora Fiorella Lis Toselli - De Argentina al Mundo</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
