@@ -361,10 +361,11 @@ a {
     "header header"
     "texto imagen"
     "textoig bannerig"
-    "footer footer";
+    "footer footer"
+    ;
 
     grid-template-columns: auto auto;
-    grid-template-rows: 15vh auto auto 15vh;
+    grid-template-rows: 15vh auto auto 3vh;
 
     row-gap: 25px;
 }
@@ -385,9 +386,11 @@ a {
     grid-area: bannerig;
 }
 
-.footer {
+.footerabout {
     grid-area: footer;
 }
+
+
 
 /*FORMATOS PARA HTML DE ABOUT-ME*/
 
@@ -769,7 +772,7 @@ a {
         "footer";
     
         grid-template-columns: 100% ;
-        grid-template-rows: auto auto auto auto auto auto auto auto 15vh;
+        grid-template-rows: auto auto auto auto auto auto auto auto 6vh;
     }
 
     
@@ -873,7 +876,7 @@ a {
     "footer"
     ;
     grid-template-columns: 100vw;
-    grid-template-rows: auto auto auto auto 15vh;
+    grid-template-rows: auto auto auto auto 8vh;
     gap: 10px;
 }
 
