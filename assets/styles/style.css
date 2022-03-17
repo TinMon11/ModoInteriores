@@ -58,6 +58,39 @@ a {
   margin: 0 auto;
 }  
 
+/*ESTILOS HEADER*/
+
+.navbar {background-color: var(--secondary);
+    width: 100%;
+    height: 100%;
+    }
+    
+    .navbar-light .navbar-nav .nav-link {
+        padding: 12px;
+        font-size: 2.5em;
+        font-weight: 600;
+        color: var(--font-color2);
+      }
+
+      .navbar .nav-item .nav-link:hover{
+        border: 1px solid white;
+        border-radius: 10px;
+        color:var(--font-color2);
+      }
+
+/*FOOTER*/
+
+.footerhome {
+    background: var(--secondary);
+    font-size: 2em;
+    text-align: center;
+    
+  }
+    .footerhome a:hover {
+        color: var(--font-color2);
+        font-weight: bold;
+    }
+
 /*GRID HOME*/
 
 .gridhome {
@@ -114,45 +147,11 @@ a {
     grid-area: footer;
 }
 
-
-/*ESTILOS HEADER*/
-
-.navbar {background-color: var(--secondary);
-    width: 100%;
-    height: 100%;
-    }
-    
-    .navbar-light .navbar-nav .nav-link {
-        padding: 12px;
-        font-size: 2.5em;
-        font-weight: 600;
-        color: var(--font-color2);
-      }
-    
-    /* .navbar .navbar__nav {
-        justify-content: space-between;
-        height: 100%;
-        align-items:center;
-    }
-    
-    .navbar__menu {
-        flex-wrap: wrap;
-    }
-    
-    
-    
-      .navbar .navbar__menu .navbar__links:hover{
-        border: 1px solid white;
-        border-radius: 10px;
-      }
-      
-    .navbar .navbar__logo {
-        height: 100%;
-    }
-    
-    .navbar .navbar__logo img {
-        height: 100%;
-    } */
+.texto h1 {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 2.5em;
+}
 
 /*BANNER PRINCIPAL Y TEXTO INFERIOR */
 
@@ -185,7 +184,7 @@ a {
     color: var(--font-color2);
     text-align: center;
     align-self: center;
-    transition: background-color 0.5s ease-out 100ms
+    transition: background-color 0.25s ease-out 100ms
   }
 
   .bannermedium__button:hover {
@@ -244,15 +243,6 @@ a {
     min-height: 400px;
 }
 
-
-/*FOOTER*/
-
-.footerhome {
-    background: var(--secondary);
-    font-size: 2em;
-    text-align: center;
-    
-  }
 
 /*PORTFOLIO */
 /*GRID PORTFOLIO*/
@@ -433,7 +423,7 @@ a {
     "footer"
     ;
     grid-template-columns: 100vw;
-    grid-template-rows: 15vh auto auto auto 15vh;
+    grid-template-rows: 15vh auto auto auto 3vh;
     gap: 20px;
 }
 
@@ -467,15 +457,20 @@ a {
 }
 
 .TextoContacto__texto h1{
-    font-size: 4em;
+    font-size: 4.5em;
     text-align: center;
+    font-weight: bolder;
 }
 
 .TextoContacto__texto h2{
-    font-size: 3em;
+    font-size: 3.5em;
     text-align: center;
     font-weight: lighter;
     margin-top: 10px;
+}
+
+.banner__contacto:hover{
+    transform: scale(1.1);
 }
 
 
@@ -496,11 +491,12 @@ a {
 .contactos .contactos__formas h3{
     font-size: 3.8em;
     text-align: center;
+    font-weight: bold;
 }
 
 .contactos .contactos__formas p{
     text-align: center;
-    font-size: 2.2em;
+    font-size: 2.5em;
 }
 
 .contactos__formas picture{
@@ -509,6 +505,14 @@ a {
 
 .contactos__formas picture img{
     width: 25px;
+}
+
+.contactos .contactos__formas a{
+    color: var(--font-color1);
+}
+
+.contactos .contactos__formas a:hover{
+    color: var(--font-color2);
 }
 
 /*PARTE DEL FORM DE CONTACTO*/
@@ -522,8 +526,8 @@ a {
 
 .Form .formulario {
     width: 500px;
-    margin: 0 auto;
-    font-size: 2em;
+    margin: 20px auto;
+    font-size: 2.2em;
     font-weight: 600;
     padding: 15px;
     border: black 2px solid;
@@ -557,25 +561,6 @@ a {
     font-weight: 600;
 
 } 
-
-
-
-/* .formulario__interes{
-    align-self: center;
-}
-
-.formulario__interes input{
-    display: inline;
-    padding: 10px;
-
-}
-
-.formulario__interes label{
-    padding: 3px;
-    text-align: center;
-}
-
-*/
 
 
 /*GRID DE SERVICIOS */
@@ -752,9 +737,7 @@ a {
             width: 100vw;
         }
 
-        .bannermedium__img {
-            width: 100vw;
-        }
+
 
 /*SECCION DE PORTFOLIO RESPONSIVE*/
 
