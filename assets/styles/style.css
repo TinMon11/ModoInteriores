@@ -78,6 +78,16 @@ a {
         color:var(--font-color2);
       }
 
+      .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+        color: var(--font-color2);
+    }
+
+    .navbar-nav .active {
+        border: 1px solid white;
+        border-radius: 10px;
+
+    }
+
 /*FOOTER*/
 
 .footerhome {
