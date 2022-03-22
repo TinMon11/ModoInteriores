@@ -1,0 +1,18 @@
+/*IMPORTACION DE VARIABLES, GLOBALES Y NORMALIZADRES*/
+
+@import './misc/variables';
+@import './misc/normalize';
+@import './misc/mixins';
+
+/*PARTIALS*/
+
+@import './partials/header';
+@import './partials/footer';
+
+/*VIEWS*/
+
+@import './views/home.scss'
+
+
+
+

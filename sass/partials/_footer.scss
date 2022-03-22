@@ -1,0 +1,12 @@
+/*FOOTER*/
+
+.footerhome {
+  background: $secondary;
+  font-size: 2em;
+  text-align: center;
+
+  a:hover {
+    color: $font-color2;
+    font-weight: bold;
+  }
+}

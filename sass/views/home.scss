@@ -1,0 +1,208 @@
+/*GRID HOME*/
+
+.gridhome {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "banner banner banner"
+    "texto texto texto"
+    "cat1 cat2 cat3"
+    "texto1 texto1 banner3"
+    "footer footer footer";
+
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 15vh auto auto 500px auto 3vh;
+
+  row-gap: 5px;
+  column-gap: 10px;
+}
+
+.navbar {
+  grid-area: header;
+}
+
+.banner1 {
+  grid-area: banner;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.texto {
+  grid-area: texto;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 2.4em;
+  font-weight: 600;
+  text-align: center;
+
+  h1 {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 2.5em;
+  }
+}
+
+.categoria1 {
+  grid-area: cat1;
+}
+.categoria2 {
+  grid-area: cat2;
+}
+.categoria3 {
+  grid-area: cat3;
+}
+
+.texto1 {
+  grid-area: texto1;
+}
+
+.banner3 {
+  grid-area: banner3;
+}
+
+.footerhome {
+  grid-area: footer;
+}
+
+/*BANNER 3 CATEGORIAS */
+
+.bannermedium {
+  justify-content: space-evenly;
+  align-items: center;
+
+  &__button {
+    padding: 5px 15px;
+    margin: 15px auto 10px auto;
+    font-size: 2.5em;
+    border: solid black 1px;
+    border-radius: 12px;
+    background-color: $secondary;
+    color: $font-color2;
+    text-align: center;
+    align-self: center;
+    transition: background-color 0.25s ease-out 100ms;
+
+    &:hover {
+      background-color: $principal;
+      color: $font-color1;
+    }
+  }
+
+  &__text {
+    width: 80%;
+    font-size: 2.25em;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  &__img {
+      max-width: 100%;
+  }
+}
+
+/*HOME TEXTO INFEROR INSTAGRAM E IMAGEN*/
+
+.bannerlow__text {
+  padding: 90px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+
+  &__texto {
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+    align-content: center;
+  }
+
+  img {
+    width: 40px;
+    align-self: center;
+    vertical-align: text-bottom;
+  }
+
+  .linkinstagram {
+    font-size: 4em;
+    color: $font-color1;
+    display: inline-block;
+    vertical-align: text-bottom;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  &__imagen {
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+  }
+}
+
+.bannerlow__img img {
+  min-height: 400px;
+}
+
+/*RESPONSIVE PARA CELULARES*/
+
+/*SECCION DE HOME RESPONSIVE*/
+
+@media only screen and (max-width: 600px) {
+  .gridhome {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "banner"
+      "texto"
+      "cat1"
+      "cat2"
+      "cat3"
+      "texto1"
+      "banner3"
+      "footer";
+
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto auto auto auto 6vh;
+  }
+
+  .navbar__nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar .navbar__logo img {
+    height: 80px;
+  }
+
+  .navbar__menu {
+    justify-content: center;
+  }
+
+  .texto {
+    font-size: 1.4em;
+  }
+
+  .bannerlow__text {
+    padding: 15px;
+
+    .bannerlow__text__texto {
+      margin: 0px 0px 10px 0px;
+      font-size: 3em;
+    }
+
+    img {
+      width: 20px;
+    }
+
+    .linkinstagram {
+      font-size: 2.2em;
+    }
+  }
+
+  .bannerlow__img img {
+    width: 100vw;
+  }
+}
