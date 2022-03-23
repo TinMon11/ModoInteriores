@@ -45,14 +45,11 @@
   }
 }
 
-.categoria1 {
-  grid-area: cat1;
-}
-.categoria2 {
-  grid-area: cat2;
-}
-.categoria3 {
-  grid-area: cat3;
+@for $i from 1 to 4 {
+  .categoria#{$i}
+    {
+    grid-area: cat#{$i};
+    }
 }
 
 .texto1 {
@@ -188,7 +185,7 @@
   .bannerlow__text {
     padding: 15px;
 
-    .bannerlow__text__texto {
+    &__texto {
       margin: 0px 0px 10px 0px;
       font-size: 3em;
     }
