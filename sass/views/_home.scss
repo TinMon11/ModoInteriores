@@ -46,10 +46,9 @@
 }
 
 @for $i from 1 to 4 {
-  .categoria#{$i}
-    {
+  .categoria#{$i} {
     grid-area: cat#{$i};
-    }
+  }
 }
 
 .texto1 {
@@ -96,7 +95,7 @@
   }
 
   &__img {
-      max-width: 100%;
+    max-width: 100%;
   }
 }
 
