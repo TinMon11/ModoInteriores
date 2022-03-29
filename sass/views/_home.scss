@@ -71,15 +71,21 @@
 
   &__button {
     padding: 5px 15px;
-    margin: 15px auto 10px auto;
+    @include margins(14px,auto,10px,auto);
+    // margin: 15px auto 10px auto;
     font-size: 2.5em;
     border: solid black 1px;
     border-radius: 12px;
-    background-color: $secondary;
-    color: $font-color2;
+    background-color: map-get($map: $button-color, $key: fondoscuro);
+    color: map-get($map: $button-color, $key: letrablanca);
     text-align: center;
     align-self: center;
     transition: background-color 0.25s ease-out 100ms;
+
+    & p {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
 
     &:hover {
       background-color: $principal;

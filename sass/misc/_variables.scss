@@ -8,3 +8,18 @@
     $font-secondary:"Montserrat", cursive;
     $text-lg: 32px;  
 
+   /*Maps button colors*/
+   
+   $button-color: (
+       fondoclaro: #CFA592,
+       fondoscuro: #C1714C,
+       letranegra: black,
+       letrablanca:white,
+       );
+
+  @mixin margins($top,$right,$bottom,$left) {
+      margin-top:$top;
+      margin-right:$right;
+      margin-bottom:$bottom;
+      margin-left:$left;
+  }     
