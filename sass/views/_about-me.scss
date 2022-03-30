@@ -1,0 +1,95 @@
+/*ABOUTE ME GRID*/
+
+.gridaboutme {
+    display: grid;
+    grid-template-areas:
+    "header header"
+    "texto imagen"
+    "textoig bannerig"
+    "footer footer"
+    ;
+
+    grid-template-columns: auto auto;
+    grid-template-rows: 15vh auto auto 3vh;
+
+    row-gap: 25px;
+}
+
+.banner_aboutme{
+    
+    &__textos {
+    grid-area: texto;
+    }
+
+    &__imagen {
+        grid-area:imagen;
+    }
+}
+
+.texto1am {
+    grid-area:textoig;
+}
+
+.banner3am {
+    grid-area: bannerig;
+}
+
+.footerabout {
+    grid-area: footer;
+}
+
+
+
+/*FORMATOS PARA HTML DE ABOUT-ME*/
+
+.banner_aboutme{ 
+    
+    &__textos {
+    align-items: center;
+    justify-content: space-evenly;
+
+    h1 {
+        font-size: 6em;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 4em;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    p {
+        font-size: 4em;
+        width: 80%;
+        text-align: center;
+    }
+}
+
+    &__imagen img {
+    width: 80%;
+    }
+}
+
+
+/*SECCION DE ABOUT-ME GRID RESPONSIVE*/
+
+.gridaboutme {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "imagen"
+    "texto"
+    "textoig"
+    "bannerig"
+    "footer";
+
+
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto 3vh;
+}
+
+.banner_aboutme__imagen img {
+    width: 100%;
+}
