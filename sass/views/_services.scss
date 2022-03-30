@@ -1,0 +1,136 @@
+/*GRID DE SERVICIOS */
+
+.gridservicios {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 15vh auto auto auto auto auto auto 3vh;
+  gap: 7px 7px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header"
+    "textoservicio imagenservicio imagenservicio"
+    "servicio01 servicio01 textoserv1"
+    "servicio02 servicio02 textoserv2"
+    "servicio03 servicio03 textoserv3"
+    "tituloincluyen tituloincluyen tituloincluyen"
+    "incluye1 incluye2 incluye3"
+    "footer footer footer";
+}
+
+.navbar {
+  grid-area: header;
+}
+
+.textoservicio {
+  grid-area: textoservicio;
+}
+
+.imagenservicio {
+  grid-area: imagenservicio;
+}
+
+@for $i from 1 to 4 {
+  .servicio0#{$i} {
+    grid-area: servicio0#{$i};
+    text-align: center;
+  }
+
+  .textoserv#{$i} {
+    grid-area: textoserv#{$i};
+    text-align: center;
+    justify-content: center;
+  }
+
+  .incluye#{$i} {
+    grid-area: incluye#{$i};
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.TituloIncluyen {
+  grid-area: tituloincluyen;
+  text-align: center;
+  justify-content: center;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+/*ESTILOS PARA HTML DE SERVICIOS*/
+
+.textoservicio {
+  align-self: center;
+  text-align: center;
+
+  h1 {
+    font-size: 4em;
+    font-weight: bold;
+  }
+}
+
+.imagenservicio img {
+  max-width: 100%;
+}
+
+.imagenincluyen {
+  max-width: 100%;
+}
+
+.servicio__imagen img {
+  max-width: 100%;
+}
+.TitulosServ {
+  font-size: 3.5em;
+  font-weight: bold;
+}
+
+.DescrServ {
+  font-size: 2.5em;
+}
+
+.TituloIncluyen {
+  margin: 35px auto;
+  font-size: 4em;
+  font-weight: bold;
+}
+
+@for $i from 1 to 4 {
+  .incluye#{$i} {
+    p {
+      margin-top: 10px;
+      font-size: 3em;
+    }
+  }
+}
+
+/*SECCION SERVICIOS RESPONSIVE GRID*/
+
+@media only screen and (max-width: 600px) {
+  .gridservicios {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: repeat(13, auto) 15vh;
+    gap: 7px 7px;
+    grid-template-areas:
+      "header"
+      "textoservicio"
+      "imagenservicio"
+      "textoserv1"
+      "servicio01"
+      "textoserv2"
+      "servicio02"
+      "textoserv3"
+      "servicio03"
+      "tituloincluyen"
+      "incluye1"
+      "incluye2"
+      "incluye3"
+      "footer";
+  }
+
+  .imagenservicio img {
+    max-width: 90vw;
+  }
+}
