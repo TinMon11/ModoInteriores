@@ -134,6 +134,8 @@
 
     &:hover {
       font-weight: bold;
+      animation: bounce;
+      animation-duration: 1s;
     }
   }
 

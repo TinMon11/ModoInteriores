@@ -241,6 +241,7 @@ a {
 
 .bannerlow__text .linkinstagram:hover {
     font-weight: bold;
+    animation: bounce;
 }
 
 .bannerlow__text__imagen {
@@ -712,7 +713,7 @@ a {
         "footer";
     
         grid-template-columns: 100% ;
-        grid-template-rows: auto auto auto auto auto auto auto auto 6vh;
+        grid-template-rows: auto auto auto auto auto auto auto auto 3vh;
     }
 
     

@@ -175,7 +175,9 @@ a {
     display: inline-block;
     vertical-align: text-bottom; }
     .bannerlow__text .linkinstagram:hover {
-      font-weight: bold; }
+      font-weight: bold;
+      animation: bounce;
+      animation-duration: 1s; }
   .bannerlow__text__imagen {
     justify-content: space-between;
     align-items: center;
@@ -242,9 +244,97 @@ a {
     border-radius: 10px; }
 
 /*SECCION DE PORTFOLIO RESPONSIVE*/
-.gridportfolio {
-  min-height: 100vh;
+@media only screen and (max-width: 600px) {
+  .gridportfolio {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: "header" "texto " "foto1" "foto2" "foto3" "foto4" "foto5" "foto6" "foto7" "foto8" "foto9" "footer";
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto 15vh; }
+  .imagen_portfolio {
+    max-width: 350px; } }
+
+/*HTML DE CONTACTO - GRID*/
+.gridcontact {
   display: grid;
-  grid-template-areas: "header" "texto " "foto1" "foto2" "foto3" "foto4" "foto5" "foto6" "foto7" "foto8" "foto9" "footer";
-  grid-template-columns: 100%;
-  grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto 15vh; }
+  grid-template-areas: "header" "textocontacto" "contacticon" "form" "footer";
+  grid-template-columns: 100vw;
+  grid-template-rows: 15vh auto auto auto 3vh;
+  gap: 20px; }
+
+.TextoContacto {
+  grid-area: textocontacto; }
+
+.contacto1 {
+  grid-area: whatsapp; }
+
+.contacto2 {
+  grid-area: call; }
+
+.contacto3 {
+  grid-area: mail; }
+
+.Form {
+  grid-area: form; }
+
+/*ESTILOS PARA HTML CONTACTO*/
+.TextoContacto {
+  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center; }
+  .TextoContacto__texto h1 {
+    font-size: 4.5em;
+    text-align: center;
+    font-weight: bolder; }
+  .TextoContacto__texto h2 {
+    font-size: 3.5em;
+    text-align: center;
+    font-weight: lighter;
+    margin-top: 10px; }
+
+.banner__contacto {
+  max-width: 100%; }
+  .banner__contacto:hover {
+    transform: scale(1.1); }
+
+.contactos {
+  padding: 20px;
+  background-image: linear-gradient(to right, #be886e, #bf8a71, #c18c73, #c28f76, #c39179, #c59680, #c69b88, #c8a08f, #caa99c, #cbb2a9, #cbbcb6, #cbc5c3);
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; }
+  .contactos__formas {
+    width: 400px;
+    gap: 10px; }
+    .contactos__formas h3 {
+      font-size: 3.8em;
+      text-align: center;
+      font-weight: bold; }
+    .contactos__formas p {
+      text-align: center;
+      font-size: 2.5em; }
+    .contactos__formas picture {
+      margin: 0 auto; }
+      .contactos__formas picture img {
+        width: 25px; }
+    .contactos__formas a {
+      color: var(--font-color1); }
+      .contactos__formas a:hover {
+        color: var(--font-color2); }
+
+/*SECCION DE CONTACTO GRID RESPONSIVE*/
+@media only screen and (max-width: 600px) {
+  .gridcontact {
+    display: grid;
+    grid-template-areas: "header" "textocontacto" "contacticon" "form" "footer";
+    grid-template-columns: 100vw;
+    grid-template-rows: auto auto auto auto 8vh;
+    gap: 10px; }
+  .TextoContacto__img {
+    margin-top: 15px; }
+    .TextoContacto__img img {
+      width: 100vw; }
+  .Form .formulario {
+    width: 80%; } }
