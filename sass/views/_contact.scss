@@ -111,10 +111,10 @@
     }
 
     a {
-      color: var(--font-color1);
+      color: $font-color1;
 
       &:hover {
-        color: var(--font-color2);
+        color: $font-color2;
       }
     }
   }
