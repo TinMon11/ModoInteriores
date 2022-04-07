@@ -24,6 +24,7 @@
 
 .banner1 {
   grid-area: banner;
+  margin-top: 4em;
 
   img {
     max-width: 100%;
@@ -88,7 +89,7 @@
     }
 
     &:hover {
-      background-color: $principal;
+      background-color: $colorsoporte;
       color: $font-color1;
     }
   }

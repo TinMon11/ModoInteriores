@@ -88,7 +88,8 @@ a {
   grid-area: header; }
 
 .banner1 {
-  grid-area: banner; }
+  grid-area: banner;
+  margin-top: 4em; }
   .banner1 img {
     max-width: 100%; }
 
@@ -144,7 +145,7 @@ a {
       margin-top: 0.5rem;
       margin-bottom: 0.5rem; }
     .bannermedium__button:hover {
-      background-color: #FFFFFF;
+      background-color: #c3917a;
       color: black; }
   .bannermedium__text {
     width: 80%;
@@ -217,11 +218,11 @@ a {
 
 /*ESTILOS SECCION PORTFOLIO*/
 .textosportfolio {
-  margin-top: 15px;
-  margin-bottom: 15px; }
+  margin: 6em 12em 6em 12em; }
   .textosportfolio h1 {
     font-size: 4em;
-    text-align: left; }
+    text-align: left;
+    font-weight: bold; }
   .textosportfolio h2 {
     margin: 25px 20px 0 auto;
     font-size: 3em;
@@ -230,7 +231,9 @@ a {
     width: 70%; }
 
 .grilla_portfolio {
-  text-align: center; }
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px; }
 
 .imagen_portfolio {
   margin: 3px; }
@@ -324,6 +327,11 @@ a {
       .contactos__formas a:hover {
         color: white; }
 
+.botonformulario button {
+  width: 80px;
+  height: 50px;
+  font-size: 1.4em; }
+
 /*SECCION DE CONTACTO GRID RESPONSIVE*/
 @media only screen and (max-width: 600px) {
   .gridcontact {
@@ -409,6 +417,10 @@ a {
 
 .imagenservicio {
   grid-area: imagenservicio; }
+
+.bannerservicio {
+  margin-top: 3.5em !important;
+  margin-bottom: 3.5em !important; }
 
 .servicio01 {
   grid-area: servicio01;

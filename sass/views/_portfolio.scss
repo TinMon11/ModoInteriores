@@ -1,12 +1,12 @@
 /*ESTILOS SECCION PORTFOLIO*/
 
 .textosportfolio {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 6em 12em 6em 12em;
 
   h1 {
     font-size: 4em;
     text-align: left;
+    font-weight: bold;
   }
 
   h2 {
@@ -20,6 +20,8 @@
 
 .grilla_portfolio {
   text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 .imagen_portfolio {

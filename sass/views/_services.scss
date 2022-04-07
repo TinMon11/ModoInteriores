@@ -29,6 +29,12 @@
   grid-area: imagenservicio;
 }
 
+
+.bannerservicio {
+  margin-top: 3.5em!important;
+  margin-bottom:3.5em!important ;
+}
+
 @for $i from 1 to 4 {
   .servicio0#{$i} {
     grid-area: servicio0#{$i};

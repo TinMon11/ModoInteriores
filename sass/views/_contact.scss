@@ -120,6 +120,15 @@
   }
 }
 
+.botonformulario {
+
+  button {
+  width: 80px;
+  height: 50px;
+  font-size: 1.4em;
+  }
+}
+
 /*SECCION DE CONTACTO GRID RESPONSIVE*/
 
 @media only screen and (max-width: 600px) {
