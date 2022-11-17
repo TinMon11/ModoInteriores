@@ -2,6 +2,7 @@
 /*Variables*/
 /*Maps button colors*/
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 /*Normalize*/
 *,
 *::after,
@@ -42,6 +43,7 @@ a {
 /*PARTIALS*/
 /*ESTILOS HEADER*/
 .navbar {
+  font-family: 'Montserrat', sans-serif;
   background-color: #ce8d67;
   width: 100%;
   height: 100%; }
@@ -137,12 +139,17 @@ a {
 
 /*BANNER 3 CATEGORIAS */
 .bannermedium {
-  justify-content: space-evenly;
-  align-items: center; }
+  margin-top: 30px;
+  justify-content: flex-start;
+  align-items: center; 
+}
   
   .bannermedium__text {
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    vertical-align: top;
     width: 85%;
-    font-size: 2.8em;
+    font-size: 2.4em;
     font-weight: 500;
     text-align: center; }
 
@@ -241,6 +248,13 @@ a {
 .imagen_portfolio {
   max-width: 400px;
   margin: 3px; }
+
+.video_section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
 
 .zoomhover {
   transition: transform 0.2s;
@@ -462,7 +476,7 @@ a {
 
 .textoserv1 {
   grid-area: textoserv1;
-  text-align: center;
+  text-align: left;
   justify-content: center; }
 
 .incluye1 {
@@ -523,9 +537,6 @@ a {
 .servicio__imagen img {
   max-width: 100%; }
 
-.TitulosServ {
-  font-size: 3.5em;
-  font-weight: bold; }
 
 .DescrServ {
   font-size: 2.5em; }
@@ -533,7 +544,7 @@ a {
 .TituloIncluyen {
   margin: 35px auto;
   font-size: 4em;
-  font-weight: bold; }
+  }
 
 .incluye1 p {
   margin-top: 10px;
