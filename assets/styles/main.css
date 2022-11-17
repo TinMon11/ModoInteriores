@@ -1,7 +1,7 @@
 /*IMPORTACION DE VARIABLES, GLOBALES Y NORMALIZADRES*/
 /*Variables*/
 /*Maps button colors*/
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 /*Normalize*/
 *,
 *::after,
@@ -12,7 +12,7 @@
 
 /*Globals*/
 html, body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Lobster Two', cursive;
   color: black;
   font-size: 62.5%;
   background-color: #FFFFFF;
@@ -42,10 +42,11 @@ a {
 /*PARTIALS*/
 /*ESTILOS HEADER*/
 .navbar {
-  background-color: #C1714C;
+  background-color: #ce8d67;
   width: 100%;
   height: 100%; }
-  .navbar .nav-item .nav-link:hover {
+  
+.navbar .nav-item .nav-link:hover {
     border: 1px solid white;
     border-radius: 10px;
     color: white; }
@@ -91,7 +92,7 @@ a {
  "texto1 texto1 banner3"
  "footer footer footer";
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 15vh auto auto 500px auto 3vh;
+  grid-template-rows: auto auto auto 500px auto 3vh;
   row-gap: 5px;
   column-gap: 10px; }
 
@@ -138,34 +139,16 @@ a {
 .bannermedium {
   justify-content: space-evenly;
   align-items: center; }
-  .bannermedium__button {
-    padding: 5px 15px;
-    margin-top: 14px;
-    margin-right: auto;
-    margin-bottom: 10px;
-    margin-left: auto;
-    font-size: 2.5em;
-    border-radius: 12px;
-    background-color: #C1714C;
-    color: white;
-    text-align: center;
-    align-self: center;
-    transition: background-color 0.25s ease-out 100ms; }
-    .bannermedium__button p {
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem; }
-    .bannermedium__button:hover {
-      box-shadow: 5px 2px 2px rgba(0, 0, 0, 0.5);
-      background-color: #C1714C;
-
-      color: white; }
+  
   .bannermedium__text {
-    width: 80%;
-    font-size: 2.25em;
-    font-weight: 600;
+    width: 85%;
+    font-size: 2.8em;
+    font-weight: 500;
     text-align: center; }
+
   .bannermedium__img {
-    max-width: 100%; }
+    max-width: 100%;
+  }
 
 /*HOME TEXTO INFEROR INSTAGRAM E IMAGEN*/
 .bannerlow__text {
@@ -256,6 +239,7 @@ a {
   margin-bottom: 25px; }
 
 .imagen_portfolio {
+  max-width: 400px;
   margin: 3px; }
 
 .zoomhover {
@@ -471,10 +455,6 @@ a {
 
 .imagenservicio {
   grid-area: imagenservicio; }
-
-.bannerservicio {
-  margin-top: 3.5em !important;
-  margin-bottom: 3.5em !important; }
 
 .servicio01 {
   grid-area: servicio01;

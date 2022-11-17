@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /*Variables*/
 :root {
     --principal:#FFFFFF  ;
-    --secondary:#C1714C;
+    --secondary:#ce8d67;
     --font-color1:black;
     --font-color2: white;
     --font-primary:'Montserrat', sans-serif;
@@ -24,7 +24,7 @@
 /*Globals*/
 
 html, body {
-  font-family: var(--font-primary);
+  font-family: 'Lobster Two', cursive;
   color: var(--font-color1);
   font-size: 62.5%;
   background-color: var(--principal);
@@ -72,11 +72,10 @@ a {
         color: var(--font-color2);
       }
 
-      .navbar .nav-item .nav-link:hover{
+      .navbar .nav-item .nav-link:hover {
         border: 1px solid white;
         border-radius: 10px;
-        color:var(--font-color2);
-      }
+        color: white; }
 
       .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
         color: var(--font-color2);
@@ -115,7 +114,7 @@ a {
     "footer footer footer";
 
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 15vh auto auto 500px auto 3vh;
+    grid-template-rows: auto auto auto 500px auto 3vh;
 
     row-gap: 5px;
     column-gap: 10px;
@@ -366,7 +365,7 @@ a {
     ;
 
     grid-template-columns: auto auto;
-    grid-template-rows: 15vh auto auto 3vh;
+    grid-template-rows: auto auto auto 3vh;
 
     row-gap: 25px;
 }
@@ -434,7 +433,7 @@ a {
     "footer"
     ;
     grid-template-columns: 100vw;
-    grid-template-rows: 15vh auto auto auto 3vh;
+    grid-template-rows: auto auto auto auto 3vh;
     gap: 20px;
 }
 
@@ -638,22 +637,38 @@ a {
     justify-content: center;   }
   
   .footer { grid-area: footer; }
+
+  .modalServicios {
+    color: white;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:#ce8d67;
+    width: 80%;
+    border-radius: 35px;
+  }
+
+  .modalServicios h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 8px;
+  }
   
 /*ESTILOS PARA HTML DE SERVICIOS*/
 
-.textoservicio {
+.bannerservicio {
+    margin-top: 10px;
+    margin-bottom: 10px;
     align-self: center;
-    text-align: center;
-    
 }
 
-.textoservicio h1 {
-    font-size: 4em;
-    font-weight: bold;
+.textoservicio h3 {
+    font-size: 3em;
+    margin-left: 30px;
+    text-align: center;
 }
 
 .imagenservicio img{
-    max-width: 100%;
+    max-width: 500px;
 } 
 
 .imagenincluyen {
@@ -666,6 +681,7 @@ a {
 .TitulosServ {
     font-size: 3.5em;
     font-weight: bold;
+    text-align: left;
 }
 
 .DescrServ {
@@ -673,6 +689,7 @@ a {
 }
 
 .TituloIncluyen {
+    width: 80%;
     margin: 35px auto;
     font-size: 4em;
     font-weight: bold;
@@ -852,6 +869,10 @@ a {
        "incluye2" 
        "incluye3"
        "footer";
+  }
+
+  .textoservicio {
+    margin-right: auto;
   }
 
 
