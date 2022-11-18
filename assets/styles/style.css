@@ -312,33 +312,6 @@ a {
     grid-area: foto9;
 } */
 
-/*ESTILOS TEXTOS PORTFOLIO*/
-
-.textosportfolio {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.textosportfolio h1{
-    font-size: 4em;
-    text-align: left;
-}
-
-.textosportfolio h2{
-    margin: 25px 20px 0 auto;
-    font-size: 3em;
-    text-align: right;
-    font-weight: lighter;
-    width: 70%;
-}
-
-.grilla_portfolio {
-    text-align: center;
-}
-
-.imagen_portfolio {
-    margin: 3px;
-}
 
 /*ZOOM IMAGENES CON HOVER*/
 .zoomhover {
@@ -650,7 +623,7 @@ a {
   }
 
   .modalServicios h1 {
-    text-align: left;
+    text-align: center;
     font-size: 4rem;
     margin-bottom: 8px;
   }
@@ -706,7 +679,7 @@ a {
     width: 80%;
     margin: 35px auto;
     font-size: 3em;
-    
+ 
 }
 
 .incluye1 p{
