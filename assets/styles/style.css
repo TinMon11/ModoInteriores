@@ -453,25 +453,45 @@ a {
     margin-top: 10px;
 }
 
-.banner__contacto{max-width: 100%};
+.Banners_Contacto{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.TextoContacto__img img {
+    
+    margin-top: 5px;
+    border-radius: 25px;
+    width: 350px;
+}
+
+
 
 .banner__contacto:hover{
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 
 .contactos {
+    display: flex;
+    flex-direction: row;
     padding: 20px;
-    background-image: linear-gradient(to right, #be886e, #bf8a71, #c18c73, #c28f76, #c39179, #c59680, #c69b88, #c8a08f, #caa99c, #cbb2a9, #cbbcb6, #cbc5c3);
-    width: 100%;
+    margin: 0 auto;
+    background-color:#ce8d67;
+    border-radius: 25px;
+    width: 80%;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .contactos__formas {
-    width: 400px;
+    text-align: center;
     gap: 10px;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .contactos .contactos__formas h3{
@@ -496,44 +516,6 @@ a {
 .contactos .contactos__formas a{
     color: var(--font-color1);
 }
-
-.contactos .contactos__formas a:hover{
-    color: var(--font-color2);
-}
-
-/*PARTE DEL FORM DE CONTACTO*/
-
-.Form h2{
-    font-size: 4em;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.Form .formulario {
-    width: 500px;
-    margin: 20px auto;
-    font-size: 2.2em;
-    font-weight: 600;
-    padding: 15px;
-    border: black 2px solid;
-    border-radius: 8px;
-}
-
-.Form .formulario div .form-check {
-    padding: 0 10px;
-}
-
-.Form .botonformulario {
-    width: 90px;
-    background-color: var(--secondary);
-    border-color: var(--secondary);
-    margin: 0 auto;
-    padding-top:3px;
-    padding-bottom: 3px;
-    text-align: center;
-
-} 
 
 .btn-primary {
     background-color: var(--secondary);

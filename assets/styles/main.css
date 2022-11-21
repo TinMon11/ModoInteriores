@@ -320,6 +320,7 @@ a {
 
 .imagen_portfolio {
   max-width: 400px;
+  border-radius: 10px;
   margin: 3px;
 }
 
@@ -425,26 +426,9 @@ a {
 }
 
 .banner__contacto {
+  margin-top: 15px;
+  border-radius: 15px;
   max-width: 20%;
-}
-
-.banner__contacto:hover {
-  transform: scale(1.1);
-}
-
-.contactos {
-  font-family: 'Montserrat', sans-serif;
-  padding: 20px;
-  background-image: linear-gradient(to right, #be886e, #bf8a71, #c18c73, #c28f76, #c39179, #c59680, #c69b88, #c8a08f, #caa99c, #cbb2a9, #cbbcb6, #cbc5c3);
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.contactos__formas {
-  width: 400px;
-  gap: 10px;
 }
 
 .contactos__formas h3 {
@@ -458,21 +442,30 @@ a {
   font-size: 2.5em;
 }
 
-.contactos__formas picture {
+.contactos__formas button {
+  font-size: 15px;
   margin: 0 auto;
+  padding: 5px;
+  border: none;
+  border-radius: 15px;
+  width: 70%;
+  margin-bottom: 5px;
 }
 
-.contactos__formas picture img {
-  width: 25px;
+.contactos__formas button:hover {
+background-color:#25D366
+;
+}
+
+.contactos__formas img {
+  text-align: center;
+  width: 20px;
 }
 
 .contactos__formas a {
   color: black;
 }
 
-.contactos__formas a:hover {
-  color: white;
-}
 
 .botonformulario button {
   width: 80px;
@@ -492,14 +485,6 @@ a {
     grid-template-columns: 100vw;
     grid-template-rows: auto auto auto auto 8vh;
     gap: 10px;
-  }
-
-  .TextoContacto__img {
-    margin-top: 15px;
-  }
-
-  .TextoContacto__img img {
-    width: 100vw;
   }
 
   .Form .formulario {
