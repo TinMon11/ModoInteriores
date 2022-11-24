@@ -326,6 +326,7 @@ a {
 
 .video_section {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -674,8 +675,8 @@ background-color:#25D366
   font-weight: bold;
 }
 
-.imagenservicio img {
-  max-width: 100%;
+.imagenservicio__imagen {
+  max-width: 200px;
 }
 
 .imagenincluyen {

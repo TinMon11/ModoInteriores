@@ -615,7 +615,7 @@ a {
 .bannerservicio {
     margin-top: 10px;
     margin-bottom: 10px;
-    align-self: center;
+    text-align: center;
 }
 
 .pasos_servicio_titulo {
@@ -628,22 +628,22 @@ a {
 }
 
 .textoservicio h3 {
+    max-width: 90%;
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;
-    margin-left: 30px;
+    margin-bottom: 10px ;
     text-align: center;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
-
-.imagenservicio img{
-    max-width: 500px;
-} 
 
 .imagenincluyen {
     max-width: 100%;
 }
 
 .servicio__imagen img{
-    max-width: 100%;
+    max-width: 90%;
 }
 .TitulosServ {
     font-family: 'Montserrat', sans-serif;
