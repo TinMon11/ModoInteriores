@@ -4,7 +4,7 @@
 /*Variables*/
 :root {
     --principal:#FFFFFF  ;
-    --secondary:#ce8d67;
+    --secondary:#CDC7AD;
     --font-color1:black;
     --font-color2: white;
     --font-primary:'Montserrat', sans-serif;
@@ -165,10 +165,6 @@ a {
 
 /*BANNER PRINCIPAL Y TEXTO INFERIOR */
 
-.banner1 img {
-    max-width: 100%;
-}
-
 .texto {
     font-size: 2.4em;
     font-weight: 600;
@@ -242,12 +238,6 @@ a {
 .bannerlow__text .linkinstagram:hover {
     font-weight: bold;
     animation: bounce;
-}
-
-.bannerlow__text__imagen {
-    justify-content: space-between;
-    align-items: center;
-    align-content:space-around;
 }
 
 .bannerlow__img img{
@@ -478,7 +468,7 @@ a {
     flex-direction: row;
     padding: 20px;
     margin: 0 auto;
-    background-color:#ce8d67;
+    background-color:#CDC7AD;
     border-radius: 25px;
     width: 80%;
     justify-content: space-around;
@@ -603,7 +593,7 @@ a {
     color: white;
     margin: 0 auto;
     padding: 20px;
-    background-color:#ce8d67;
+    background-color:#CDC7AD;
     width: 90%;
     border-radius: 35px;
   }
@@ -648,6 +638,7 @@ a {
 
 .servicio__imagen img{
     max-width: 90%;
+    border-radius: 30px;
 }
 .TitulosServ {
     font-family: 'Montserrat', sans-serif;
