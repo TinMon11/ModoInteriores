@@ -1,6 +1,4 @@
-# PROYECTO CODERHOUSE DESARROLLO WEB
-
-## Se diseña Web para MODO INTERIORES
+## Se diseña Web para FIMA STUDIO INTERIORES
 
 ## Herramientas Usadas:
 ### HTML5, CSS, SASS, GIT, Bootstrap.

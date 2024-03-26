@@ -25,7 +25,7 @@
 /*Globals*/
 
 html, body {
-  font-family: 'Lobster Two', cursive;
+  font-family: "Playfair Display", serif;
   color: var(--font-color1);
   font-size: 62.5%;
   background-color: var(--principal);
@@ -364,7 +364,7 @@ a {
 }
 
 .banner_aboutme__textos h1 {
-    font-size: 6em;
+    font-size: 4em;
     font-weight: bolder;
     text-align: center;
 }
@@ -376,7 +376,7 @@ a {
 }
 
 .banner_aboutme__textos p {
-    font-size: 4em;
+    font-size: 3em;
     width: 80%;
     text-align: center;
 }
@@ -468,6 +468,7 @@ a {
     flex-direction: row;
     padding: 20px;
     margin: 0 auto;
+    margin-bottom: 12px;
     background-color:#CDC7AD;
     border-radius: 25px;
     width: 80%;
@@ -596,12 +597,20 @@ a {
     background-color:#CDC7AD;
     width: 90%;
     border-radius: 35px;
+    text-align: center;
   }
 
   .modalServicios h1 {
     text-align: center;
     font-size: 4rem;
     margin-bottom: 8px;
+  }
+  
+  .modalServicios h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    margin-top: 24px;
   }
   
 /*ESTILOS PARA HTML DE SERVICIOS*/
@@ -616,6 +625,7 @@ a {
     width: 80%;
     margin: 0 auto;
     margin-bottom: 30px;
+    margin-top: 30px;
     font-size: 5.2em;
     font-weight: bold;
     text-align: center;
@@ -638,13 +648,13 @@ a {
 
 .servicio__imagen img{
     max-width: 90%;
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 .TitulosServ {
     font-family: 'Montserrat', sans-serif;
     margin-top: 30px;
     font-size: 3em;
-    text-align: left;
+    text-align: center;
 }
 
 .DescrServ {
