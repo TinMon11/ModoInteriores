@@ -547,7 +547,7 @@ a {
   .imagenservicio { grid-area: imagenservicio; }
 
   .imagenservicio__imagen img {
-    max-width: 500px;
+    max-width: 90%;
   }
   
   .servicio01 { grid-area: servicio01;

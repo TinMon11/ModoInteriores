@@ -191,7 +191,8 @@ a {
 }
 
 .bannermedium__img {
-  max-width: 100%;
+  margin-left: 5%;
+  max-width: 90%;
   border-radius: 25px;
 }
 
@@ -237,8 +238,9 @@ a {
 
 .bannerlow__img img {
   max-height: 400px;
+  max-width: 90%;
   border-radius: 15px;
-  margin: 0 auto;
+  margin-left: 5%;
 }
 
 /*RESPONSIVE PARA CELULARES*/
@@ -725,6 +727,10 @@ background-color:#929290
   font-size: 3em;
 }
 
+.banners_incluyen {
+  max-width: 100%;
+}
+
 /*SECCION SERVICIOS RESPONSIVE GRID*/
 @media only screen and (max-width: 600px) {
   .gridservicios {
@@ -746,9 +752,5 @@ background-color:#929290
       "incluye2"
       "incluye3"
       "footer";
-  }
-
-  .imagenservicio img {
-    max-width: 90vw;
   }
 }
