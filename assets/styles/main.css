@@ -1,7 +1,7 @@
 /*IMPORTACION DE VARIABLES, GLOBALES Y NORMALIZADRES*/
 /*Variables*/
 /*Maps button colors*/
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
 /*Normalize*/
@@ -16,7 +16,7 @@
 /*Globals*/
 html,
 body {
-  font-family: 'Lobster Two', cursive;
+  font-family: "Playfair Display", serif;
   color: black;
   font-size: 62.5%;
   background-color: #FFFFFF;
@@ -53,7 +53,7 @@ a {
 /*ESTILOS HEADER*/
 .navbar {
   font-family: 'Montserrat', sans-serif;
-  background-color: #ce8d67;
+  background-color: #CDC7AD;
   width: 100%;
   height: 100%;
 }
@@ -89,13 +89,14 @@ a {
 
 /*FOOTER*/
 .footerhome {
-  background: #C1714C;
+  background: #CDC7AD;
   font-size: 2em;
   text-align: center;
+  color:black
 }
 
 .footerhome a:hover {
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -122,11 +123,15 @@ a {
 
 .banner1 {
   grid-area: banner;
-  margin-top: 4em;
+  margin-top: 3em;
+  width: 100%;
+  display: flex;
 }
 
 .banner1 img {
-  max-width: 100%;
+  max-width: 95%;
+  margin: 0 auto; /* Centra horizontalmente */
+  border-radius: 15px;
 }
 
 .texto {
@@ -186,7 +191,9 @@ a {
 }
 
 .bannermedium__img {
-  max-width: 100%;
+  margin-left: 5%;
+  max-width: 90%;
+  border-radius: 25px;
 }
 
 /*HOME TEXTO INFEROR INSTAGRAM E IMAGEN*/
@@ -211,7 +218,7 @@ a {
 }
 
 .bannerlow__text .linkinstagram {
-  font-size: 4em;
+  font-size: 5em;
   color: black;
   display: inline-block;
   vertical-align: text-bottom;
@@ -219,23 +226,26 @@ a {
 
 .bannerlow__text .linkinstagram:hover {
   font-weight: bold;
-  animation: bounce;
-  animation-duration: 1s;
 }
 
 .bannerlow__text__imagen {
-  justify-content: space-between;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
   align-items: center;
-  align-content: space-around;
+  align-content: center;
 }
 
 .bannerlow__img img {
-  min-height: 400px;
+  max-height: 400px;
+  max-width: 90%;
+  border-radius: 15px;
+  margin-left: 5%;
 }
 
 /*RESPONSIVE PARA CELULARES*/
 /*SECCION DE HOME RESPONSIVE*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .gridhome {
     display: grid;
     grid-template-areas: "header"
@@ -283,9 +293,11 @@ a {
 
   .bannerlow__text .linkinstagram {
     font-size: 2.2em;
+    margin: auto
   }
 
-  .bannerlow__img img {
+  .bannerlow__img {
+    margin: 0 auto;
     max-width: 100vw;
   }
 }
@@ -456,7 +468,7 @@ a {
 }
 
 .contactos__formas button:hover {
-background-color:#25D366
+background-color:#929290
 ;
 }
 
@@ -521,6 +533,7 @@ background-color:#25D366
 
 .banner3am {
   grid-area: bannerig;
+  display: flex;
 }
 
 .footerabout {
@@ -553,6 +566,7 @@ background-color:#25D366
 
 .banner_aboutme__imagen img {
   width: 80%;
+  border-radius: 15px;
 }
 
 /*SECCION DE ABOUT-ME GRID RESPONSIVE*/
@@ -571,6 +585,7 @@ background-color:#25D366
 
   .banner_aboutme__imagen img {
     width: 100%;
+    border-radius: 15px;
   }
 }
 
@@ -712,6 +727,10 @@ background-color:#25D366
   font-size: 3em;
 }
 
+.banners_incluyen {
+  max-width: 100%;
+}
+
 /*SECCION SERVICIOS RESPONSIVE GRID*/
 @media only screen and (max-width: 600px) {
   .gridservicios {
@@ -733,9 +752,5 @@ background-color:#25D366
       "incluye2"
       "incluye3"
       "footer";
-  }
-
-  .imagenservicio img {
-    max-width: 90vw;
   }
 }
