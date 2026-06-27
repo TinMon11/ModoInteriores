@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Libre Caslon Text", ui-serif, Georgia, serif;
+  
+  /* Aura & Earth design spec colors */
+  --color-surface: #fcf9f4;
+  --color-on-surface: #1c1c19;
+  --color-on-surface-variant: #45483c;
+  --color-primary: #3e5219;
+  --color-on-primary: #ffffff;
+  --color-cta: #cbc7aa;
+  --color-on-cta: #1c1c19;
+  --color-secondary: #725a39;
+  --color-whatsapp: #25D366;
+  
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f8f5ef;
+  --color-surface-container: #f0ede9;
+  --color-surface-container-high: #e7e3de;
+  
+  --color-outline: #827a5f;
+  --color-outline-variant: #cbc7aa;
+  
+  --color-error-container: #fce8e6;
+  --color-on-error-container: #a8201a;
+  
+  --animate-subtle-zoom: subtle-zoom 20s ease-out infinite;
+}
+
+@keyframes subtle-zoom {
+  0% { transform: scale(1.02); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1.02); }
+}
+
+body {
+  background-color: #fcf9f4;
+  color: #1c1c19;
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Base custom classes for high-end styling */
+.font-serif {
+  font-family: "Libre Caslon Text", ui-serif, Georgia, serif;
+}
+
+/* Custom selection styling */
+::selection {
+  background-color: #cbc7aa;
+  color: #1c1c19;
+}
+
+/* Pointer cursor on every interactive element.
+   Tailwind v4 no longer sets cursor:pointer on buttons by default. */
+button:not(:disabled),
+a,
+[role="button"],
+label[for],
+select,
+summary {
+  cursor: pointer;
+}
