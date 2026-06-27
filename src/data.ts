@@ -159,6 +159,11 @@ export const FOUNDERS = {
   quote: 'Diseñar un hogar es meterse en la vida de las personas. Por eso nos gusta conocerte antes de pensar tu espacio.'
 };
 
+// Web3Forms public access key — routes contact + booking submissions to the
+// studio's email. This is a public routing key (safe in the frontend), not a
+// secret. Replace the placeholder with the key from web3forms.com.
+export const WEB3FORMS_ACCESS_KEY = '8cf571b4-f840-4fe3-82cb-0c7ca4dd90d7';
+
 export const COMPANY_CONTACT = {
   email: 'fimastudio.interiores@gmail.com',
   instagram: '@fimastudio.interiores',

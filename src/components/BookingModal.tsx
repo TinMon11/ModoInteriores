@@ -6,7 +6,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Calendar as CalendarIcon, Clock, Check, Sparkles, AlertCircle } from 'lucide-react';
-import { Booking } from '../types';
+import { submitToWeb3Forms } from '../web3forms';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -24,6 +24,9 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     message: ''
   });
   const [error, setError] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  // Honeypot: hidden field real users never fill. Bots do.
+  const [botField, setBotField] = useState('');
 
   const timeSlots = [
     '09:00', '10:30', '14:00', '15:30', '17:00'
@@ -57,25 +60,34 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     }
   };
 
-  const handleSubmit = () => {
-    const newBooking: Booking = {
-      id: `booking-${Date.now()}`,
-      name: formData.name,
-      email: formData.email,
-      date: formData.date,
-      time: formData.time,
-      projectType: formData.projectType,
-      message: formData.message,
-      status: 'confirmed',
-      createdAt: new Date().toISOString()
-    };
+  const handleSubmit = async () => {
+    // Honeypot tripped — silently drop the bot submission.
+    if (botField) return;
 
-    // Save to localStorage
-    const existingBookings = JSON.parse(localStorage.getItem('fima_bookings') || '[]');
-    existingBookings.push(newBooking);
-    localStorage.setItem('fima_bookings', JSON.stringify(existingBookings));
+    setIsSending(true);
+    setError('');
 
-    setStep(3); // Show success step
+    const projectTypeLabel =
+      projectTypes.find(pt => pt.value === formData.projectType)?.label ?? formData.projectType;
+
+    try {
+      await submitToWeb3Forms({
+        subject: `Nueva cita de ${formData.name} — Fima Studio`,
+        from_name: 'Fima Studio Web',
+        name: formData.name,
+        email: formData.email,
+        'Tipo de proyecto': projectTypeLabel,
+        'Fecha solicitada': formData.date,
+        'Horario': `${formData.time} hs`,
+        message: formData.message || '(sin comentarios)',
+      });
+
+      setStep(3); // Show success step
+    } catch {
+      setError('No pudimos agendar tu cita. Probá de nuevo o escribinos por WhatsApp.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const resetModal = () => {
@@ -239,6 +251,18 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   </div>
                 </div>
 
+                {/* Honeypot — hidden from real users, catches bots */}
+                <input
+                  type="text"
+                  name="botcheck"
+                  value={botField}
+                  onChange={(e) => setBotField(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
+
                 <div className="mt-8 flex justify-end">
                   <button
                     onClick={nextStep}
@@ -328,15 +352,17 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 <div className="mt-8 flex justify-between gap-4">
                   <button
                     onClick={() => setStep(1)}
-                    className="border border-outline-variant text-on-surface-variant font-label-caps text-xs uppercase tracking-widest py-3.5 px-6 rounded-sm hover:bg-surface-container transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1"
+                    disabled={isSending}
+                    className="border border-outline-variant text-on-surface-variant font-label-caps text-xs uppercase tracking-widest py-3.5 px-6 rounded-sm hover:bg-surface-container transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     Atrás
                   </button>
                   <button
                     onClick={nextStep}
-                    className="bg-cta text-on-cta font-label-caps text-xs uppercase tracking-widest py-3.5 px-8 rounded-sm hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    disabled={isSending}
+                    className="bg-cta text-on-cta font-label-caps text-xs uppercase tracking-widest py-3.5 px-8 rounded-sm hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Confirmar y agendar
+                    {isSending ? 'Agendando...' : 'Confirmar y agendar'}
                   </button>
                 </div>
               </motion.div>

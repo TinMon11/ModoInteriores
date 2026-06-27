@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Instagram, MapPin, Check, AlertCircle, Send } from 'lucide-react';
 import { COMPANY_CONTACT, IMAGE_CONTACT } from '../data';
-import { ContactMessage } from '../types';
+import { submitToWeb3Forms } from '../web3forms';
 
 export default function ContactView() {
   const [formData, setFormData] = useState({
@@ -17,7 +17,10 @@ export default function ContactView() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState('');
+  // Honeypot: hidden field real users never fill. Bots do.
+  const [botField, setBotField] = useState('');
 
   const projectTypes = [
     { value: 'residential', label: 'Residencial (Hogar)' },
@@ -32,7 +35,7 @@ export default function ContactView() {
     if (error) setError('');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -40,27 +43,37 @@ export default function ContactView() {
       return;
     }
 
-    const newMessage: ContactMessage = {
-      id: `msg-${Date.now()}`,
-      name: formData.name,
-      email: formData.email,
-      projectType: formData.projectType,
-      message: formData.message,
-      createdAt: new Date().toISOString()
-    };
+    // Honeypot tripped — silently drop the bot submission.
+    if (botField) return;
 
-    // Save message to localStorage
-    const existingMessages = JSON.parse(localStorage.getItem('fima_messages') || '[]');
-    existingMessages.push(newMessage);
-    localStorage.setItem('fima_messages', JSON.stringify(existingMessages));
+    setIsSending(true);
+    setError('');
 
-    setIsSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      projectType: 'residential',
-      message: ''
-    });
+    const projectTypeLabel =
+      projectTypes.find(pt => pt.value === formData.projectType)?.label ?? formData.projectType;
+
+    try {
+      await submitToWeb3Forms({
+        subject: `Nueva consulta de ${formData.name} — Fima Studio`,
+        from_name: 'Fima Studio Web',
+        name: formData.name,
+        email: formData.email,
+        'Tipo de consulta': projectTypeLabel,
+        message: formData.message,
+      });
+
+      setIsSubmitted(true);
+      setFormData({
+        name: '',
+        email: '',
+        projectType: 'residential',
+        message: ''
+      });
+    } catch {
+      setError('No pudimos enviar tu mensaje. Probá de nuevo o escribinos por WhatsApp.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -98,6 +111,18 @@ export default function ContactView() {
                     <span>{error}</span>
                   </div>
                 )}
+
+                {/* Honeypot — hidden from real users, catches bots */}
+                <input
+                  type="text"
+                  name="botcheck"
+                  value={botField}
+                  onChange={(e) => setBotField(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
 
                 <div className="flex flex-col gap-1.5">
                   <label className="font-label-caps text-[10px] uppercase tracking-wider text-on-surface-variant">Nombre completo *</label>
@@ -156,9 +181,10 @@ export default function ContactView() {
 
                 <button
                   type="submit"
-                  className="w-full bg-primary text-on-primary font-sans text-xs font-bold uppercase tracking-widest py-4 px-6 rounded-sm shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                  disabled={isSending}
+                  className="w-full bg-primary text-on-primary font-sans text-xs font-bold uppercase tracking-widest py-4 px-6 rounded-sm shadow-md hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Enviar Mensaje
+                  {isSending ? 'Enviando...' : 'Enviar Mensaje'}
                   <Send size={14} />
                 </button>
               </motion.form>
