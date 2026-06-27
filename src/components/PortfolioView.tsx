@@ -116,11 +116,24 @@ export default function PortfolioView({ onOpenBooking }: PortfolioViewProps) {
                 >
                   {/* Photo Container */}
                   <div className={`relative ${aspect} overflow-hidden bg-surface-container rounded-sm shadow-sm border border-outline-variant/10`}>
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.03] grayscale-[10%] group-hover:grayscale-0"
-                    />
+                    {project.video ? (
+                      <video
+                        src={project.video}
+                        poster={project.image}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.03]"
+                      />
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="w-full h-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.03] grayscale-[10%] group-hover:grayscale-0"
+                      />
+                    )}
                     
                     {/* Dark slide overlay */}
                     <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6 md:p-8">
@@ -212,11 +225,24 @@ export default function PortfolioView({ onOpenBooking }: PortfolioViewProps) {
               <div className="overflow-y-auto w-full">
                 {/* Visual Banner */}
                 <div className="aspect-[16/9] w-full relative">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.name}
-                    className="w-full h-full object-cover"
-                  />
+                  {selectedProject.video ? (
+                    <video
+                      src={selectedProject.video}
+                      poster={selectedProject.image}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.name}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 text-white">
                     <span className="font-sans text-[10px] font-bold uppercase tracking-widest text-white/80 block mb-1">

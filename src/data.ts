@@ -36,14 +36,15 @@ export const PROJECTS: Project[] = [
     size: '85 m²'
   },
   {
-    id: 'apartamento-marina',
-    name: 'Apartamento Marina',
-    category: 'residential',
-    location: 'Valencia, España',
-    image: '/images/portfolio/portfolio3.jpg',
-    description: 'Vestíbulo residencial con carácter editorial. Cuenta con un sillón de terciopelo verde oliva con curvas orgánicas y acabados de concreto pulido que reflejan la luz de la costa mediterránea.',
-    year: '2025',
-    size: '140 m²'
+    id: 'instituto-cultura-inglesa-video',
+    name: 'Instituto de Cultura Inglesa',
+    category: 'commercial',
+    location: 'General Pico, La Pampa, Argentina',
+    image: '/images/portfolio/portfolio5.jpg',
+    video: '/videos/video_instituto.mp4',
+    description: 'Diseño comercial educativo y moderno. Aulas luminosas, circulaciones claras, color controlado y mobiliario modular que incentiva el aprendizaje y el intercambio.',
+    year: '2023',
+    size: '310 m²'
   },
   {
     id: 'casa-lg',
@@ -56,8 +57,8 @@ export const PROJECTS: Project[] = [
     size: '230 m²'
   },
   {
-    id: 'instituto-cultura-inglesa',
-    name: 'Instituto Cultura Inglesa',
+    id: 'casa-pedro',
+    name: 'Casa Pedro',
     category: 'commercial',
     location: 'Gral Pico, La Pampa',
     image: '/images/portfolio/portfolio5.jpg',
@@ -159,14 +160,10 @@ export const FOUNDERS = {
   quote: 'Diseñar un hogar es meterse en la vida de las personas. Por eso nos gusta conocerte antes de pensar tu espacio.'
 };
 
-// Web3Forms public access key — routes contact + booking submissions to the
-// studio's email. This is a public routing key (safe in the frontend), not a
-// secret. Replace the placeholder with the key from web3forms.com.
-export const WEB3FORMS_ACCESS_KEY = '8cf571b4-f840-4fe3-82cb-0c7ca4dd90d7';
-
 export const COMPANY_CONTACT = {
   email: 'fimastudio.interiores@gmail.com',
   instagram: '@fimastudio.interiores',
   whatsappUrl: 'https://wa.link/lu8p84',
+  whatsappNumber: '5492302537841',
   address: 'Gral Pico, La Pampa / Santa Rosa, La Pampa, Argentina'
 };

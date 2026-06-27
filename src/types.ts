@@ -9,6 +9,9 @@ export interface Project {
   category: 'residential' | 'commercial';
   location: string;
   image: string;
+  // Optional looping video shown instead of the image (muted, autoplay).
+  // `image` is used as the poster while it loads.
+  video?: string;
   description: string;
   year?: string;
   size?: string;

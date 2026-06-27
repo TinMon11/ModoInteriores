@@ -5,8 +5,8 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Calendar as CalendarIcon, Clock, Check, Sparkles, AlertCircle } from 'lucide-react';
-import { submitToWeb3Forms } from '../web3forms';
+import { X, Check, AlertCircle } from 'lucide-react';
+import { COMPANY_CONTACT } from '../data';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -14,23 +14,15 @@ interface BookingModalProps {
 }
 
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(1); // 1 = form, 2 = success
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     projectType: 'residential',
-    date: '',
-    time: '',
     message: ''
   });
   const [error, setError] = useState('');
-  const [isSending, setIsSending] = useState(false);
   // Honeypot: hidden field real users never fill. Bots do.
   const [botField, setBotField] = useState('');
-
-  const timeSlots = [
-    '09:00', '10:30', '14:00', '15:30', '17:00'
-  ];
 
   const projectTypes = [
     { value: 'residential', label: 'Residencial (Hogar)' },
@@ -44,97 +36,38 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     if (error) setError('');
   };
 
-  const nextStep = () => {
-    if (step === 1) {
-      if (!formData.name || !formData.email || !formData.projectType) {
-        setError('Por favor completá todos los campos requeridos.');
-        return;
-      }
-      setStep(2);
-    } else if (step === 2) {
-      if (!formData.date || !formData.time) {
-        setError('Por favor seleccioná una fecha y horario para la videollamada.');
-        return;
-      }
-      handleSubmit();
+  const handleSubmit = () => {
+    if (!formData.name) {
+      setError('Por favor completá tu nombre.');
+      return;
     }
-  };
 
-  const handleSubmit = async () => {
     // Honeypot tripped — silently drop the bot submission.
     if (botField) return;
-
-    setIsSending(true);
-    setError('');
 
     const projectTypeLabel =
       projectTypes.find(pt => pt.value === formData.projectType)?.label ?? formData.projectType;
 
-    try {
-      await submitToWeb3Forms({
-        subject: `Nueva cita de ${formData.name} — Fima Studio`,
-        from_name: 'Fima Studio Web',
-        name: formData.name,
-        email: formData.email,
-        'Tipo de proyecto': projectTypeLabel,
-        'Fecha solicitada': formData.date,
-        'Horario': `${formData.time} hs`,
-        message: formData.message || '(sin comentarios)',
-      });
+    const text =
+      `Hola, soy ${formData.name}.\n` +
+      `Tipo de proyecto: ${projectTypeLabel}` +
+      (formData.message ? `\n\n${formData.message}` : '');
 
-      setStep(3); // Show success step
-    } catch {
-      setError('No pudimos agendar tu cita. Probá de nuevo o escribinos por WhatsApp.');
-    } finally {
-      setIsSending(false);
-    }
+    const whatsappUrl = `https://wa.me/${COMPANY_CONTACT.whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    setStep(2); // Show success step
   };
 
   const resetModal = () => {
     setStep(1);
     setFormData({
       name: '',
-      email: '',
       projectType: 'residential',
-      date: '',
-      time: '',
       message: ''
     });
     setError('');
     onClose();
-  };
-
-  // Generate next 7 days for quick picking (excluding Sunday)
-  const getNextDays = () => {
-    const days = [];
-    const today = new Date();
-    
-    for (let i = 1; i <= 10; i++) {
-      const nextDate = new Date(today);
-      nextDate.setDate(today.getDate() + i);
-      
-      // 0 is Sunday
-      if (nextDate.getDay() !== 0) {
-        days.push(nextDate);
-      }
-      if (days.length >= 6) break;
-    }
-    return days;
-  };
-
-  const availableDays = getNextDays();
-
-  const formatDateLabel = (date: Date) => {
-    const daysOfWeek = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
-    const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
-    
-    const dayName = daysOfWeek[date.getDay() - 1] || 'Sáb';
-    return {
-      dayName,
-      dayNum: date.getDate(),
-      monthStr: months[date.getMonth()],
-      isoString: date.toISOString().split('T')[0]
-    };
   };
 
   return (
@@ -167,15 +100,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               <X size={20} />
             </button>
 
-            {/* Step Indicators */}
-            {step < 3 && (
-              <div className="mb-6 flex items-center gap-2">
-                <span className={`h-1.5 w-8 rounded-full transition-all duration-300 ${step >= 1 ? 'bg-primary' : 'bg-outline-variant/30'}`} />
-                <span className={`h-1.5 w-8 rounded-full transition-all duration-300 ${step >= 2 ? 'bg-primary' : 'bg-outline-variant/30'}`} />
-                <span className="h-1.5 w-8 rounded-full bg-outline-variant/30" />
-              </div>
-            )}
-
             {error && (
               <div className="mb-4 flex items-center gap-2 rounded-sm bg-error-container p-3 text-sm text-on-error-container">
                 <AlertCircle size={16} />
@@ -190,9 +114,9 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 10 }}
               >
-                <h3 className="font-headline-md text-2xl text-on-surface mb-2">Agendemos un encuentro</h3>
+                <h3 className="font-headline-md text-2xl text-on-surface mb-2">Hablemos de tu proyecto</h3>
                 <p className="font-body-md text-on-surface-variant text-sm mb-6 leading-relaxed">
-                  Contanos un poco sobre vos y el tipo de proyecto para preparar la llamada inicial.
+                  Contanos sobre vos y tu proyecto, y seguimos la charla por WhatsApp.
                 </p>
 
                 <div className="space-y-5">
@@ -204,19 +128,6 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Tu nombre..."
-                      className="border-b border-outline py-2 font-body text-sm bg-transparent focus:outline-none focus:border-primary focus-visible:ring-0 transition-colors placeholder:text-outline"
-                      required
-                    />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label className="font-label-caps text-[10px] uppercase tracking-wider text-on-surface-variant">Correo electrónico *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="hola@ejemplo.com"
                       className="border-b border-outline py-2 font-body text-sm bg-transparent focus:outline-none focus:border-primary focus-visible:ring-0 transition-colors placeholder:text-outline"
                       required
                     />
@@ -265,111 +176,20 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
                 <div className="mt-8 flex justify-end">
                   <button
-                    onClick={nextStep}
-                    className="bg-cta text-on-cta font-label-caps text-xs uppercase tracking-widest py-3.5 px-8 rounded-sm hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    onClick={handleSubmit}
+                    className="bg-whatsapp text-white font-label-caps text-xs uppercase tracking-widest py-3.5 px-8 rounded-sm hover:opacity-90 transition-opacity flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                   >
-                    Siguiente
+                    Enviar por WhatsApp
+                    <svg viewBox="0 0 24 24" width={16} height={16} fill="currentColor" aria-hidden="true">
+                      <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.413c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.043zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                    </svg>
                   </button>
                 </div>
               </motion.div>
             )}
 
-            {/* Step 2: Date & Time Select */}
+            {/* Step 2: Success message */}
             {step === 2 && (
-              <motion.div
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
-              >
-                <h3 className="font-headline-md text-2xl text-on-surface mb-2">Seleccioná Fecha y Hora</h3>
-                <p className="font-body-md text-on-surface-variant text-sm mb-6 leading-relaxed">
-                  Las reuniones se realizan mediante videollamada de Google Meet (duración: 40 minutos).
-                </p>
-
-                <div className="space-y-6">
-                  {/* Date Grid picker */}
-                  <div className="flex flex-col gap-3">
-                    <label className="font-label-caps text-[10px] uppercase tracking-wider text-on-surface-variant flex items-center gap-1.5">
-                      <CalendarIcon size={12} /> Seleccioná un día
-                    </label>
-                    <div className="grid grid-cols-3 gap-2 sm:grid-cols-6">
-                      {availableDays.map((date, idx) => {
-                        const info = formatDateLabel(date);
-                        const isSelected = formData.date === info.isoString;
-                        return (
-                          <button
-                            type="button"
-                            key={idx}
-                            onClick={() => setFormData(prev => ({ ...prev, date: info.isoString }))}
-                            className={`flex flex-col items-center justify-center p-2.5 rounded-sm border transition-all text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
-                              isSelected
-                                ? 'bg-primary border-primary text-on-primary shadow-sm'
-                                : 'border-outline-variant/50 hover:border-primary/50 text-on-surface bg-surface-container-lowest'
-                            }`}
-                          >
-                            <span className={`text-[10px] font-medium uppercase tracking-wider ${isSelected ? 'text-white/80' : 'text-on-surface-variant'}`}>
-                              {info.dayName}
-                            </span>
-                            <span className="text-lg font-semibold my-0.5">
-                              {info.dayNum}
-                            </span>
-                            <span className={`text-[9px] uppercase tracking-widest ${isSelected ? 'text-white/85' : 'text-outline'}`}>
-                              {info.monthStr}
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Time list picker */}
-                  <div className="flex flex-col gap-3">
-                    <label className="font-label-caps text-[10px] uppercase tracking-wider text-on-surface-variant flex items-center gap-1.5">
-                      <Clock size={12} /> Horarios Disponibles (Hora local)
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {timeSlots.map((time, idx) => {
-                        const isSelected = formData.time === time;
-                        return (
-                          <button
-                            type="button"
-                            key={idx}
-                            onClick={() => setFormData(prev => ({ ...prev, time }))}
-                            className={`px-4 py-2 text-xs font-semibold rounded-sm border transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
-                              isSelected
-                                ? 'bg-primary border-primary text-on-primary'
-                                : 'border-outline-variant/50 hover:border-primary/50 text-on-surface bg-surface-container-lowest'
-                            }`}
-                          >
-                            {time} hs
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8 flex justify-between gap-4">
-                  <button
-                    onClick={() => setStep(1)}
-                    disabled={isSending}
-                    className="border border-outline-variant text-on-surface-variant font-label-caps text-xs uppercase tracking-widest py-3.5 px-6 rounded-sm hover:bg-surface-container transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    Atrás
-                  </button>
-                  <button
-                    onClick={nextStep}
-                    disabled={isSending}
-                    className="bg-cta text-on-cta font-label-caps text-xs uppercase tracking-widest py-3.5 px-8 rounded-sm hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    {isSending ? 'Agendando...' : 'Confirmar y agendar'}
-                  </button>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Step 3: Success message */}
-            {step === 3 && (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -378,33 +198,16 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 text-primary">
                   <Check size={32} />
                 </div>
-                <h3 className="font-headline-md text-2xl text-on-surface mb-2">Cita agendada</h3>
-                <p className="font-body-md text-on-surface-variant text-sm mb-6 max-w-sm mx-auto leading-relaxed">
-                  Gracias, {formData.name}. Reservamos tu videollamada para el{' '}
-                  <span className="font-semibold text-primary">
-                    {formData.date.split('-').reverse().join('/')}
-                  </span>{' '}
-                  a las <span className="font-semibold text-primary">{formData.time} hs</span>.
+                <h3 className="font-headline-md text-2xl text-on-surface mb-2">Te abrimos WhatsApp</h3>
+                <p className="font-body-md text-on-surface-variant text-sm mb-8 max-w-sm mx-auto leading-relaxed">
+                  Se abrió WhatsApp con tu mensaje listo para enviar. Si no se abrió solo, escribinos directo y te respondemos enseguida.
                 </p>
-
-                <div className="text-left rounded-sm bg-surface-container p-5 max-w-md mx-auto mb-8 border border-outline-variant/30 text-xs text-on-surface-variant leading-relaxed space-y-3">
-                  <p className="font-semibold text-on-surface flex items-center gap-1.5 text-sm">
-                    <Sparkles size={14} className="text-primary" /> ¿Qué sigue ahora?
-                  </p>
-                  <ul className="list-disc pl-4 space-y-1.5">
-                    <li>Te enviaremos un correo electrónico con el enlace de <b>Google Meet</b> y la confirmación.</li>
-                    <li>
-                      Para aprovechar al máximo el encuentro, tené a mano fotos del espacio en cuestión y algunas referencias que te inspiren.
-                    </li>
-                    <li>Majo &amp; Fiore van a estar listas para conocerte y charlar sobre tu casa ideal.</li>
-                  </ul>
-                </div>
 
                 <button
                   onClick={resetModal}
                   className="bg-primary text-on-primary font-label-caps text-xs uppercase tracking-widest py-3.5 px-10 rounded-sm hover:opacity-90 transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
-                  Entendido, cerrar
+                  Cerrar
                 </button>
               </motion.div>
             )}
